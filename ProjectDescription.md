@@ -1,16 +1,16 @@
-#Team Members:
-###Joshua Dickens
+Team Members:
+Joshua Dickens
 Computer Science
 dickenjd@mail.uc.edu
 
-###Eric Bridgens
+Eric Bridgens
 
 
-###Sunny He
+Sunny He
 
 
 
-#Project Topic Area:
-###Sports Data Collection and Analysis
+Project Topic Area:
+Sports Data Collection and Analysis
 
 Delivery: Web or Mobile App
