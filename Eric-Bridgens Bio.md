@@ -23,7 +23,7 @@
     ## Certificates: IBM Data Science Practitioner
  
 # **Projects Sought** 
-    ##Software/Application Development 
-    ##Data Science 
-    ##Artificial Intelligence
-    ##Game Development 
+    ## Software/Application Development 
+    ## Data Science 
+    ## Artificial Intelligence
+    ## Game Development 
