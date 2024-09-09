@@ -8,6 +8,10 @@
 
 ## Eric Bridgens
 
+### Computer Science
+
+### bridgeec@mail.uc.edu
+
 ## Sunny He
 
 ### Computer Science
