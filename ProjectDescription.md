@@ -1,27 +1,29 @@
-# Team Members:
+# Team JDEBSH (not official)
 
-## Joshua Dickens 
+## Team Members:
 
-### Computer Science
+### Joshua Dickens 
 
-### dickenjd@mail.uc.edu
+Computer Science
 
-## Eric Bridgens
+dickenjd@mail.uc.edu
 
-### Computer Science
+### Eric Bridgens
 
-### bridgeec@mail.uc.edu
+Computer Science
 
-## Sunny He
+bridgeec@mail.uc.edu
 
-### Computer Science
+### Sunny He
 
-### hesw@mail.uc.edu
+Computer Science
 
-# Project Topic Area:
+hesw@mail.uc.edu
 
-## Sports Data Collection and Analysis
+## Project Topic Area:
 
-# Delivery:
+Sports Data Collection and Analysis
 
-## Web or Mobile App
+## Delivery:
+
+Web or Mobile App
