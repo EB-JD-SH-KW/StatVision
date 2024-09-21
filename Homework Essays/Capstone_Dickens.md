@@ -1,3 +1,5 @@
+# Individual Capstone Assignment
+
 Over my academic career, I have been aiming to use my Computer Science degree to
 pursue becoming a data analyst or a software engineer. This project will allow me the ability to
 display my skills in both, adding to my resume a project displaying skills in building a data
