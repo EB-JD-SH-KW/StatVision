@@ -20,6 +20,12 @@ Computer Science
 
 hesw@mail.uc.edu
 
+### Kyle Willoughby
+
+Computer Science
+
+WillouKM@mail.UC.edu
+
 ## Project Topic Area:
 
 Sports Data Collection and Analysis
