@@ -1,0 +1,15 @@
+# Major Milestones
+- Decision on whether to use SQL or take data directly from API  
+  - Determine costs of hosting cloud DB vs. API calls, efficiency and security  
+- Completion of the design of the Database  
+  - Relational vs. Not, hosted service, structure for smart search/GPT-to-SQL  
+- Decision on which APIs we will use for each league  
+  - Determine which leagues we will focus on for this project  
+- Implement method for accessing transforming user input into an SQL query  
+- Connect API from one league to database  
+- Successfully update databases with APIs  
+- Create a basic UI to test middleware and backend functionality  
+- Connect Frontend to middleware  
+- Output desired statistics from test input  
+- Implement a more detailed user interface to improve ease of use  
+- Add functionalities for all desired sports leagues  
