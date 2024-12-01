@@ -1,4 +1,4 @@
-#ABET Concerns Essay
+# ABET Concerns Essay
 
 For this project, our team discovered that there are some financial limitations, and  we intend to use any free or open-source tools when we can.  We plan on using open-source APIs for pulling team and player data into our database. Some leagues, such as the NBA, offer an open-source API, however for some leagues we plan to use a 3rd party open-source API due to our financial limitations. We are also financially limited for hosting our website and database, so we are currently comparing costs between tools such as AWS and Azure, as well as other tools that offer student discounts/credits to determine which resource would best match our budget.   
 
