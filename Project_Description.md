@@ -30,6 +30,7 @@ WillouKM@mail.UC.edu
 
 Sports Data Collection and Analysis
 
-## Delivery:
+## Project Abstract
 
-Web or Mobile App
+Our project aims to create a dynamic sports tracking and analytics platform for casual fans, fantasy sports players, and analysts. Fans can view real-time stats for teams and players, while fantasy users access data for roster decisions. Analysts benefit from league-wide data. By blending real-time updates and analytics, the platform delivers actionable sports insights for all users. 
+
