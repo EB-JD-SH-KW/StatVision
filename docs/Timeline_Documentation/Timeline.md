@@ -6,7 +6,7 @@
 | Research user input functionality            | Oct 10, 2024 | Oct 20, 2024    |
 | Research database vs direct API              | Oct 21, 2024 | Nov 11, 2024    |
 | Research methods for storing and updating    | Oct 28, 2024 | Nov 10, 2024    |
-| Design front-end and UI                      | Jan 13, 2025 | Dec 7, 2024     |
+| Design front-end and UI                      | Jan 13, 2025 | Jan 31, 2025     |
 | Design functionality to turn user input into SQL query | Jan 13, 2025 | Jan 31, 2025 |
 | Document database layout                     | Jan 13, 2025  | Jan 17, 2025    |
 | Implement data design                        | Jan 13, 2025 | Jan 26, 2025    |
