@@ -79,8 +79,8 @@
 - **Implement filtering and sorting**: Research and design a way to add filtering and sorting options to customize search.
   - Research on sorting and filtering – 5 hours
 
-- **Develop input functionalities**: Research and develop different ways for users to input questions and receive relevant information.  
- - Research on user inputs and outputs – 7 hours 
+- **Develop input functionalities**: Research and develop different ways for users to input questions and receive relevant information.
+  - Research on user inputs and outputs – 7 hours 
 
 - **Group Assignments**: Design and describe diagrams, project constraints, and timeline. - 8 hours 
 
