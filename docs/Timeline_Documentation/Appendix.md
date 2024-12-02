@@ -3,23 +3,48 @@
 
 ## Project Tasks and Hours
  
-### Eric 
-- Design and implement frontend functionality for visualizing user’s desired data. - 6 hours 
+## Eric 
 
-Research similar applications approaches to visualizing data – 3 hours 
+- **Design frontend functionality for visualizing user’s desired data** – 6 hours 
 
-Research best practices/standards for data visualization – 3 hours 
+  - Research similar applications approach to visualizing data 
+
+  - Research best practices/standards for data visualization 
+
+- **Research API options for fetching user’s desired league data** – 10 hours 
+
+  - Find potential free APIs 
+
+  - Compare features of Free and Paid APIs 
+
+  - Research type of data provided (player stats, game results) 
+
+  - Compare limits on API calls and availability of data 
+
+  - Compare key features to find which would fit our functionality 
+
+- **Research best methods for accessing and storing previous and current league data** – 6 hours 
+
+  - Review our potential database options 
+
+  - Research methods for access to frequently used data 
+
+- **Research and test bringing data directly from API to frontend vs bringing data from updated database** – 8 hours 
+
+  - Research pros and cons of bringing data directly from API to frontend versus storing API data in a database 
+
+  - Research general retrieval times of APIs versus local storage 
+
+- **Collaborate and Gather Feedback** – 10 hours 
+
+  - Discuss and refine the strategy with team members to align with project goals 
+
+- **Individual Assignments** – 5 hours 
+
+  - Write and edit professional bio & individual capstone essay 
+
  
-- Research API options for fetching user’s desired league data. - 8 hours 
-- Research best methods for accessing and storing previous and current league data. -4 hours 
-- Research and test bringing data directly from API to frontend vs bringing data from updated database. - 12 hours 
-- Document all API access methods and design API tests to use on an API Client Manager (Bruno, Postman). 
-
-- **Collaborate and Gather Feedback**: Discuss and refine the strategy with team members to align with project goals.  – 10 hours 
-
-- **Individual Assignments**: Write and edit professional bio & individual capstone essay.- 5 hrs 
- 
-### Josh 
+## Josh 
 - **Research best options for database to store player and team data.** This includes potential options for the cloud, methods for using the cloud and various forms of SQL, etc. - 10 hours 
 
 - **Collaborate and Gather Feedback**: Discuss and refine the strategy with team members or stakeholders to align with project goals.  – 10 hours 
@@ -33,7 +58,7 @@ Research best practices/standards for data visualization – 3 hours
 - **Individual Assignments**: Write and edit professional bio & individual capstone essay. - 5 hours 
 
  
-### Kyle 
+## Kyle 
 
  
 - **Design a Data Organization Strategy**: Analyze project needs, define data structure, establish relationships, and select organizational methods.  – 10 hours 
@@ -46,12 +71,18 @@ Research best practices/standards for data visualization – 3 hours
 
 - **Collaborate and Gather Feedback**: Discuss and refine the strategy with team members to align with project goals.  – 10 hours 
  
-### Sunny 
+## Sunny 
 
-- **Design frontend layout**: Research and develop frontend and user interface using html CSS, and JavaScript. 
+-**Design frontend layout**: Research and develop frontend and user interface using html CSS, and JavaScript. 
 
-- **Research on html CSS and JavaScript** – 5 hours 
-- **Research input functionalities**: Research different ways for users to input questions and receive relevant information. - 7 hours 
+- Research on html CSS and JavaScript – 5 hours 
+
+-**Implement filtering and sorting**: Research and design a way to add filtering and sorting options to customize search.  
+
+- Research on sorting and filtering – 5 hours 
+- **Develop input functionalities**: Research and develop different ways for users to input questions and receive relevant information.  
+
+- Research on user inputs and outputs – 7 hours 
 
 - **Group Assignments**: Design and describe diagrams, project constraints, and timeline. - 8 hours 
 
