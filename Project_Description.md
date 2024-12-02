@@ -45,6 +45,4 @@ Statmuse is one of the most used sports statistics websites due to its ease of u
 There are many websites which offer free unlimited data retrieval on sports statistics across many leagues, however many of the websites only focus on one league. These league focused websites such as basketball-reference.com, seem to have busy user interfaces with many different pages and filtering options that can confuse casual users. 
 
 
-## Team Approach
-
 
