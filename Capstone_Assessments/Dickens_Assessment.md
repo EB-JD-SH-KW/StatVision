@@ -1,4 +1,7 @@
-# Individual Capstone Assignment
+# Individual Capstone Assessment
+
+
+## Introduction
 
 Over my academic career, I have been aiming to use my Computer Science degree to
 pursue becoming a data analyst or a software engineer. This project will allow me the ability to
@@ -7,6 +10,9 @@ pipeline and creating an easy way to access such data. I’ve been looking for a
 to add to my resume and being able to display most of the skills for my target job opportunities is
 what I have been looking for. This project will also allow me to gain more experience in a fullstack environment. Learning and applying code to make all sides of the project move will be a
 great academic experience for me.
+
+
+## College Curriculum
 
 Over my college career, there have been several classes that have given me the skills
 necessary to complete this project. These classes include EECE3093, CS3003, CS4092, and
@@ -17,6 +23,9 @@ the center of our project. AMEC-2050C taught me how to design high quality websi
 our end user a positive experience. EECE3093 put everything together, giving me the
 opportunity to work on a similar yet smaller project to see what the process is like, so I am more
 prepared for this one.
+
+
+## Co-op Experiences
 
 A couple of my Co-Ops have given me great experience and skills that will help me
 accomplish our goals. First, as a QA Data Analyst Intern with Scheduler AI, I frequently had to
@@ -29,6 +38,9 @@ code, completing several projects such as a Web API, a separate website for comm
 the API, and wrote processes automating several tasks within Sage. These general coding skills
 will give me the tools I need to build our project from the ground up.
 
+
+## Project Motivation
+
 I am incredibly motivated and excited to participate in this project. Our preliminary
 approach to designing a solution is first figuring out what our stack will be. We will need to
 ensure we have all the tools for the job, and this includes needing a form of middleware to ensure
@@ -37,6 +49,8 @@ semester is to at least get a working and fully stored database that end-users c
 find key data in sports history at their fingertips. Although we have agreed to set the bar a little
 lower in favor of quality, I think what I would consider a success is starting to show us
 expanding beyond that at the end of the project.
+
+## Preliminary Approach
 
 It is important to set ourselves up to innovate our data and build on this project going into
 the following semester. I believe I will consider our team’s work a good job as soon as it’s
