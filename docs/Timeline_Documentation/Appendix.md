@@ -73,10 +73,10 @@
  
 ## Sunny 
 
--**Design frontend layout**: Research and develop frontend and user interface using html CSS, and JavaScript. 
+- **Design frontend layout**: Research and develop frontend and user interface using html CSS, and JavaScript. 
  - Research on html CSS and JavaScript – 5 hours 
 
--**Implement filtering and sorting**: Research and design a way to add filtering and sorting options to customize search.  
+- **Implement filtering and sorting**: Research and design a way to add filtering and sorting options to customize search.  
  - Research on sorting and filtering – 5 hours
 
 - **Develop input functionalities**: Research and develop different ways for users to input questions and receive relevant information.  
