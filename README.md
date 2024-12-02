@@ -86,7 +86,8 @@ Our project aims to create a dynamic sports tracking and analytics platform for 
 
 ## Project Presentation 
 
-- [PowerPoint Presentation](docs/Project_Presentation/PowerPoint_Presenatation.pptx) 
+- [PowerPoint Presentation](docs/Project_Presentation/PowerPoint_Presenatation.pptx)
+- [Video Presentation](https://mailuc-my.sharepoint.com/personal/bridgeec_mail_uc_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fbridgeec%5Fmail%5Fuc%5Fedu%2FDocuments%2FAssignment%5F8%5F%2D%5FSlide%5FShow%5F%2D%5FFall%5FDesign%5FPresenatations%20%281%29%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E9fb0ca11%2Dfba1%2D4c1c%2D9d78%2D22b42090d69e)
 
  
 
