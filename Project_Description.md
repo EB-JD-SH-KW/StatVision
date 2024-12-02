@@ -38,7 +38,7 @@ Our project aims to create a dynamic sports tracking and analytics platform for 
 
 There are massive amounts of data generated across many different sports leagues each season. This data is desirable for fans
 and analyst across a variety of leagues, and these leagues often have their own first or third party website. Additionally, any website that does offer multiple sports leagues typically has a paywall, or has a complicated user interface. 
-This project aims to solve this problem by organizing data across a variety of sports leagues so fans can access their desired data for their favorite teams in one place with a simple and clean user interface. Casual and die-hard fans can both find their desired data with just one search. 
+This project aims to solve this problem by organizing data across a variety of sports leagues so fans can access their desired data for their favorite teams in one place with a simple and clean user interface all for free. Casual and die-hard fans can both find their desired data with just one search. 
 
 ## Inadequacy of Current Solutions
 Statmuse is one of the most used sports statistics websites due to its ease of use and variety of sports covered, but has a paywall for finding advanced statistics and only allows a threshold of free searches per day. 
