@@ -1,0 +1,32 @@
+# Defines the application components to be run as separate containers
+services:
+
+  # Define a service for web application
+  StatVision:
+
+    # Specify build options for the Docker image
+    build:
+
+      # Use the current directory as the build context
+      context: .
+
+      # Use the specified Dockerfile to build the image
+      dockerfile: Dockerfile
+
+    # Specify commands to run the django development server
+    command: 
+      python3 manage.py runserver 0.0.0.0:8000
+
+    # Name the docker container
+    container_name: StatVision_Docker_Container
+    
+    # Name the docker image
+    image: StatVision_Docker_Image
+
+    # Map port 8000 on the host to port 8000 in the container
+    ports:
+      - 8000:8000
+
+    # Mount the current directory to /home/docker in the container
+    volumes:
+      - ./..:/home/docker

@@ -1,0 +1,28 @@
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
+<!--    Creation Date:      August 15, 2024                                                 -->
+<!--    Project Name:       StatVision                                                      -->
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Sign In | StatVision
+{% endblock %}
+
+
+{% block main %}
+
+<h1 class="main-heading">Sign In</h1>
+
+<div class="sign-in">
+    <form method='post' id="sign-in" class="form">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button id="submit">Sign In</button>
+        <p>Don't have an account? <a href="{% url 'sign-up' %}">Sign Up</a></p>
+    </form>
+</div>
+
+{% endblock %}
