@@ -1,6 +1,6 @@
 #  User Guide for Sports Data Web App
 
-Welcome to StatVision! This guide provides an overview of how to interact with our application, which allows users to access player and team statistics from professional sports leagues.
+Welcome to StatVision! This guide provides an overview of how to interact with our application, which allows you to access player and team statistics from professional sports leagues.
 
 ##  Overview
 - **Search sports data** for multiple leagues (NBA, NFL, etc.).
