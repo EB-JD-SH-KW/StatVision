@@ -12,14 +12,18 @@ Welcome to StatVision! This guide provides an overview of how to interact with o
 1. Go to the homepage.
    ![HomePage](Screenshots/home.png)
 2. Select desired league from dropdown menu (NBA, NFL, etc.).
-   [DropDownMenu](Screenshots/searchnotext.png)
-4. Enter a search term (e.g., "LeBron James 2023 stats").
-5. Click "Search" to retrieve relevant data.
+   ![DropDownMenu](Screenshots/searchnotext.png)
+3. Enter a search term (e.g., "LeBron James 2023 stats").
+   ![Search](Screenshots/searchbronnyjames.png)
+4. Click "Search" to retrieve relevant data.
 
 ### Account Setup 
-1. Click the sign-in button in the top right. 
+1. Click the sign-in button in the top right.
+   ![Sign-In](Screenshots/Signin.png)
 2. If you do not have an account, click Sign Up under the sign-in button.
+   ![Sign-Up](Screenshots/signin.png)
 3. Enter your information and click sign-up
+   ![Info](Screenshots/signup.png)  
 4. Click the sign-in button to sign in with your new account. 
 
 ### Installation
