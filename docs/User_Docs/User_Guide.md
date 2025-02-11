@@ -3,14 +3,14 @@
 Welcome to StatVision! This guide provides an overview of how to interact with our application, which allows users to access player and team statistics from professional sports leagues.
 
 ##  Overview
-This web application provides:
-- Access to sports data from **multiple leagues** (NBA, NFL, etc.).
-- Historical **player and team statistics**.
-- User-friendly **search and filtering** features.
-- **Real-time** data updates via APIs.
+- **Search sports data** for multiple leagues (NBA, NFL, etc.).
+- **View player and team stats** across multiple seasons.
+- **Filter and sort results** for better insights.
 
-##  How to Use
-1. **Navigate to the Web App** - Open the homepage in your browser.
-2. **Enter a Query** - Search for players, teams, or statistics.
-3. **View & Filter Results** - Use filters to refine data.
-4. **Export Data** - Download search results in CSV or JSON format.
+## Step-by-Step Guide
+### 🔹 Searching for Data
+1. Go to the homepage.
+2. Select desired league from dropdown menu (NBA, NFL, etc.).
+3. Enter a search term (e.g., "LeBron James 2023 stats").
+4. Click "Search" to retrieve relevant data.
+
