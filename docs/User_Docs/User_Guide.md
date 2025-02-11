@@ -21,4 +21,4 @@ Welcome to StatVision! This guide provides an overview of how to interact with o
 4. Click the sign-in button to sign in with your new account. 
 
 ### Installation
-- To run this application locally refer to the [Installation Guide](#Installation_Guide)
+- To run this application locally refer to the [Installation Guide](#Installation_Guide.md)
