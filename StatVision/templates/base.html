@@ -1,0 +1,95 @@
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
+<!--    Creation Date:      August 15, 2024                                                 -->
+<!--    Project Name:       StatVision                                                      -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>{% block title %}StatVision{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content="StatVision is a sports data platform.">
+        <link rel="icon" href="{% static 'images/statvision-logo-black.png' %}" type="image/icon">
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+
+            <header>
+
+                <figure id="logo">
+                    <a href="{% url 'home' %}">
+                        <img id="logo-black" src="{% static 'images/statvision-logo-black.png' %}" alt="StatVision Logo">
+                        <img id="logo-white" src="{% static 'images/statvision-logo-white.png' %}" alt="StatVision Logo">
+                    </a>
+                </figure>
+
+                <p id="site-name"><a href="{% url 'home' %}">StatVision</a></p>
+
+                <form id="search" action="/search" method="GET">
+
+                    <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
+
+                    <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="button" id="clear-icon" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+                    
+                    <ul id="autocomplete-list">
+                        <li id="autocomplete-item"><a href="{% url 'mlb' %}"><i class="fa-solid fa-baseball-ball fa-xl"></i>MLB</a></li>
+                        <li id="autocomplete-item"><a href="{% url 'nba' %}"><i class="fa-solid fa-basketball-ball fa-xl"></i>NBA</a></li>
+                        <li id="autocomplete-item"><a href="{% url 'nfl' %}"><i class="fa-solid fa-football-ball fa-xl"></i>NFL</a></li>
+                    </ul>
+
+                </form>
+
+
+                <figure id="account-icon">
+
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'sign-out' %}">
+                            <img id="icon-black" src="{% static 'images/sign-out-icon-black.png' %}" alt="Sign Out Icon" />
+                            <img id="icon-white" src="{% static 'images/sign-out-icon-white.png' %}" alt="Sign Out Icon" />
+                        </a>
+                    {% else %}
+                        <a href="{% url 'sign-in' %}">
+                            <img id="icon-black" src="{% static 'images/sign-in-icon-black.png' %}" alt="Sign In Icon" />
+                            <img id="icon-white" src="{% static 'images/sign-in-icon-white.png' %}" alt="Sign In Icon" />
+                        </a>
+                    {% endif %}
+
+                </figure>
+
+            </header>
+
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+
+            <footer>
+
+                <nav id="nav">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'terms' %}">Terms</a>
+                    <a href="{% url 'privacy' %}">Privacy</a>
+                </nav>
+                
+
+                <figure id="logo">
+                    <img src="{% static 'images/statvision-logo-black.png' %}" alt="StatVision Logo">
+                </figure>
+                
+                <p id="copyright">StatVision &copy; 2025 BDHW. All Rights Reserved.</p>
+
+            </footer>
+
+        </div>
+        <script src="{% static 'js/base.js' %}" type="text/javascript" defer></script>
+    </body>
+
+</html>
