@@ -10,9 +10,10 @@ Welcome to StatVision! This guide provides an overview of how to interact with o
 ## Step-by-Step Guide
 ###  Searching for Data
 1. Go to the homepage.
-2. Select desired league from dropdown menu (NBA, NFL, etc.).
-3. Enter a search term (e.g., "LeBron James 2023 stats").
-4. Click "Search" to retrieve relevant data.
+   ![HomePage](Screenshots/home.png)
+3. Select desired league from dropdown menu (NBA, NFL, etc.).
+4. Enter a search term (e.g., "LeBron James 2023 stats").
+5. Click "Search" to retrieve relevant data.
 
 ### Account Setup 
 1. Click the sign-in button in the top right. 
