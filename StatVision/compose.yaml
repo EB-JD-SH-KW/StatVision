@@ -21,11 +21,11 @@ services:
     container_name: StatVision_Docker_Container
     
     # Name the docker image
-    image: StatVision_Docker_Image
+    image: statvision_docker_image
 
     # Map port 8000 on the host to port 8000 in the container
     ports:
-      - 8000:8000
+      - "8000:8000"
 
     # Mount the current directory to /home/docker in the container
     volumes:
