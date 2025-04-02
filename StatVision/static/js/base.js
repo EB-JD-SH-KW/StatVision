@@ -8,7 +8,7 @@ const content_types = ['player', 'team'];
 
 // Define the host, key, and base url for the api
 const api_host = 'sports-information.p.rapidapi.com';
-const api_key = '57d0de8e70msh8dfd6aa90a4f540p1056dejsn93b82d089ef1';
+const api_key = 'f67f29274dmsh8358ea60c752314p17b1e0jsn11971d87397c';
 const api_url = new URL(`https://${api_host}`);
 
 // Define the options object for the fetch call, including method and headers
