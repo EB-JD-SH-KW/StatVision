@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)8lam30s3@9ow6njtzbtq+1zri=8=&8#a2o(4*ep%+#3w8!%(0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1']
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'StatVision.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'sportsinfo',
+        'USER': 'sa',
+        'PASSWORD': 'StatVision05082025#!',
+        'HOST': 'sportsinfo.c1si0m0ggtln.us-east-2.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 

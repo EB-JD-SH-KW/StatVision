@@ -32,10 +32,24 @@
 
                 <p id="site-name"><a href="{% url 'home' %}">StatVision</a></p>
 
-                <form id="search" action="/search" method="GET">
+                <!-- <form id="search" action="/search" method="GET">
 
                     <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
+                    
+                    <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="button" id="clear-icon" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+                    
+                    <ul id="autocomplete-list">
+                        <li id="autocomplete-item"><a href="{% url 'mlb' %}"><i class="fa-solid fa-baseball-ball fa-xl"></i>MLB</a></li>
+                        <li id="autocomplete-item"><a href="{% url 'nba' %}"><i class="fa-solid fa-basketball-ball fa-xl"></i>NBA</a></li>
+                        <li id="autocomplete-item"><a href="{% url 'nfl' %}"><i class="fa-solid fa-football-ball fa-xl"></i>NFL</a></li>
+                    </ul>
 
+                </form> -->
+
+                <form id="search" action="/search-query/" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name = "search_query" id="search-input" placeholder="Search" autocomplete="off" />
                     <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <button type="button" id="clear-icon" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
                     
