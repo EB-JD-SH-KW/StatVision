@@ -4,7 +4,7 @@ from .databasecontext import db_context
 
 # Set your OpenAI API key (using the key stored in settings)
 #openai.api_key = settings.OPENAI_API_KEY
-openai.api_key = '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'
+openai.api_key = 
 
 
 def generate_sql_query(english_query):
