@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .execute_sql import execute_sql_query
-from .SQL_query_generation import generate_sql_query
+from .SQL_query_generation import generate_sql_query, generate_users_results, clean_sql_query
 from .forms import *
 from .models import *
 import openai
@@ -91,10 +91,16 @@ def search_view(request):
         if search_query: 
             sql_query = generate_sql_query(search_query) 
             print(f"sql_query: {sql_query}") 
-            results = execute_sql_query(sql_query) 
+            sql_query = clean_sql_query(sql_query)
+            print(f"sql_query_cleaned:{sql_query}")
+            sql_results = execute_sql_query(sql_query) 
+            results = generate_users_results(search_query ,sql_results)
             print(f"Search Results: {results}") 
 
-    return render(request, 'search_page.html', {'search_query': search_query, 'results': results})
+    return render(request, 'home.html', {
+    'search_query': search_query,
+    'results': results
+    })
 
             
         

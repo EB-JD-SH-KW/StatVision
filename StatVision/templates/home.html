@@ -14,7 +14,14 @@ Home | StatVision
 {% block main %}
 
 <h1 class="main-heading">Home</h1>
-
+<div class="home">
+    <!-- Conditional Display of Results -->
+    {% if results %}
+        <div class="results" style="margin-top: 20px;">
+            <p>{{ results }}</p>
+        </div>
+    {% endif %}
+</div>
 <div class="home">
     <!-- Place Content Here -->
 </div>

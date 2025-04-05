@@ -10,9 +10,6 @@ load_dotenv()
 api_key = os.getenv("OPEN_AI_KEY")
 openai.api_key = api_key
 
-# Set your OpenAI API key (using the key stored in settings)
-#openai.api_key = settings.OPENAI_API_KEY
-openai.api_key = api_key
 
 def generate_sql_query(english_query):
     try:
@@ -29,7 +26,7 @@ def generate_sql_query(english_query):
 
         sql_query = response['choices'][0]['message']['content'].strip()
 
-        # ✅ Show token usage
+        #show token usage
         print("Token usage:", response['usage'])
 
         return sql_query
@@ -37,3 +34,46 @@ def generate_sql_query(english_query):
     except Exception as e:
         print(f"Error generating SQL query: {e}")
         return None
+
+def generate_users_results(question, results):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are generating a response from an SQL query to a user."
+                },
+                {
+                    "role": "system",
+                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result."
+                },
+            ],
+            temperature=0.2,
+            max_tokens=1024
+        )
+
+
+        user_results = response['choices'][0]['message']['content'].strip()
+
+        
+        print("Token usage:", response['usage'])
+
+        return user_results
+    except Exception as e:
+        print(f"Error generating response: {e}")
+        return None
+
+
+def clean_sql_query(query):
+    # Check if the query starts with '```sql' and ends with '```'
+    if query is None:
+        return None
+    
+    if query.startswith("```sql") and query.endswith("```"):
+        # Remove the starting '```sql' and ending '```'
+        cleaned_query = query[6:-3].strip()  # 6 is the length of '```sql' and 3 is for closing '```'
+        return cleaned_query
+    else:
+        # Return the query as is if it doesn't start with '```sql' or ends with '```'
+        return query
