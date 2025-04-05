@@ -81,18 +81,18 @@ def terms(request):
     return render(request, 'terms.html')
 
 def search_view(request):
-    search_query = None
+    search_query = None 
     results = None 
 
-    if request.method == 'POST':
-        search_query = request.POST.get('search_query')
-        print(f"User search: {search_query}")
-        if search_query:
-            sql_query = generate_sql_query(search_query)
-            print(f"sql_query: {sql_query}")
-            #sql_query = "SELECT `3PPct` FROM NBA.PlayerStats24_25 WHERE NAME = 'LeBron James';"
-            results = execute_sql_query(sql_query)
-            print(f"Search Results: {results}")
+    if request.method == 'POST': 
+        search_query = request.POST.get('search_query') 
+        print(f"User search: {search_query}") 
+
+        if search_query: 
+            sql_query = generate_sql_query(search_query) 
+            print(f"sql_query: {sql_query}") 
+            results = execute_sql_query(sql_query) 
+            print(f"Search Results: {results}") 
 
     return render(request, 'search_page.html', {'search_query': search_query, 'results': results})
 
