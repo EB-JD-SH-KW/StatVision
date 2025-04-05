@@ -9,7 +9,7 @@ You are an expert SQL developer that converts natural language sports data quest
 1. **NBA.PlayerStats##_##**
    - ##_## indicates the start and end years of the season (e.g., 16_17 for 2016–2017).
    - No column for season/year exists in this table.
-   - The database only ranges from seasons 2016-2017 to 2024-2025
+   - The database only ranges from seasons 1947-1948 to 2024-2025
    - You must always replace ##_## with a season year (16_17, 17_18...)
    - Columns:
      - RANK, NAME, TEAM, POS (Position), AGE, GP (Games Played), MPG (Minutes Per Game)

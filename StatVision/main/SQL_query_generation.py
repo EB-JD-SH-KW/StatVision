@@ -53,13 +53,30 @@ def generate_users_results(question, results):
             max_tokens=1024
         )
 
+        user_results = response['choices'][0]['message']['content'].strip()        
+        print("Token usage:", response['usage'])
 
-        user_results = response['choices'][0]['message']['content'].strip()
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are generating a python dictionary to be passed into a function, only include the python dictionary with NO ADDITIONAL CHARACTERS"
+                },
+                {
+                    "role": "system",
+                    "content": f"create this sentence into a list of dictionaries to use in python, {user_results}"
+                },
+            ],
+            temperature=0.2,
+            max_tokens=1024
+        )
+        table_results = response['choices'][0]['message']['content'].strip()
 
         
         print("Token usage:", response['usage'])
-
-        return user_results
+        return user_results, table_results
+    
     except Exception as e:
         print(f"Error generating response: {e}")
         return None
@@ -73,6 +90,19 @@ def clean_sql_query(query):
     if query.startswith("```sql") and query.endswith("```"):
         # Remove the starting '```sql' and ending '```'
         cleaned_query = query[6:-3].strip()  # 6 is the length of '```sql' and 3 is for closing '```'
+        return cleaned_query
+    else:
+        # Return the query as is if it doesn't start with '```sql' or ends with '```'
+        return query
+    
+def clean_python_table(query):
+    # Check if the query starts with '```sql' and ends with '```'
+    if query is None:
+        return None
+    
+    if query.startswith("```python") and query.endswith("```"):
+        # Remove the starting '```sql' and ending '```'
+        cleaned_query = query[9:-3].strip()  # 6 is the length of '```sql' and 3 is for closing '```'
         return cleaned_query
     else:
         # Return the query as is if it doesn't start with '```sql' or ends with '```'
