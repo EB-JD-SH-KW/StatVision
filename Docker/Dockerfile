@@ -11,4 +11,4 @@ WORKDIR /home/docker
 COPY ../requirements.txt requirements.txt
 
 # Use pip to install the dependencies listed in the requirements file.
-RUN pip3 install -r requirements.txt
+RUN pip3 install --requirement requirements.txt
