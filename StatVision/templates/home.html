@@ -42,28 +42,6 @@ Home | StatVision
             <div class="results" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 20px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto; color: #4B96E1">
                 <p>{{ results }}</p>
             </div>
-
-        <!-- Table for Results --> 
-        <table style="width: 100%; margin-top: 20px; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="background-color: #f2f2f2;">
-                    <!-- Dynamically generate table headers from the first row's keys -->
-                    {% for column in table_result.0.keys %}
-                        <th style="padding: 8px; border: 1px solid #ddd;">{{ column }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Loop through all rows (dictionaries) in table_result and create table rows -->
-                {% for result in table_result %}
-                    <tr>
-                        {% for key, value in result.items %}
-                            <td style="padding: 8px; border: 1px solid #ddd;">{{ value }}</td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
         {% endif %}
     </div>
 <div class="home">
