@@ -96,7 +96,6 @@ def search_view(request):
             sql_results = execute_sql_query(sql_query) 
             results, table_result = generate_users_results(search_query ,sql_results)
             table_result = clean_python_table(table_result)
-            print(table_result)
             print(f"Search Results: {results}") 
 
     return render(request, 'home.html', {

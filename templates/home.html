@@ -13,7 +13,7 @@ Home | StatVision
 
 {% block main %}
 
-<h1 class="main-heading">Home</h1>
+<h1 class="main-heading"></h1>
     <style>
         /* Set the entire page background color to white */
         body {
@@ -40,15 +40,35 @@ Home | StatVision
         <!-- Conditional Display of Results -->
         {% if results %}
             <div class="results" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 20px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto; color: #4B96E1">
+                <p style="color: white;">hellooooo</p>
                 <p>{{ results }}</p>
             </div>
-
-        <!-- Table for Results --> 
-            
-            
-
         {% endif %}
-    </div>
+        {% if table_result %}
+            <p>Table data is present!</p>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- Dynamically generate table headers -->
+                        {% for key in table_result.0.keys %}
+                            <th>{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in table_result %}
+                        <tr>
+                            {% for value in row.values %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Table data is empty or None!</p>
+        {% endif %}
+</div>
 <div class="home">
     <!-- Place Content Here -->
 </div>
