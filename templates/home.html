@@ -61,6 +61,15 @@ Home | StatVision
             </tbody>
         </table>
     {% endif %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 10px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto;">
+                <p style="color: #4B96E1 ">{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     </div>
 <div class="home">
     <!-- Place Content Here -->

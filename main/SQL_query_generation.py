@@ -3,7 +3,7 @@ from django.conf import settings
 from .databasecontext import db_context
 import os 
 import json
-
+import logging
 from dotenv import load_dotenv
 
 
@@ -27,7 +27,7 @@ def generate_sql_query(english_query):
         )
 
         sql_query = response['choices'][0]['message']['content'].strip()
-        
+        print(sql_query, flush=True)
         return sql_query
 
     except Exception as e:
@@ -45,7 +45,7 @@ def generate_users_results(question, results):
                 },
                 {
                     "role": "system",
-                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result."
+                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result. If the result is None, say 'sorry, we couldn't find what you were looking for. Please try another search'"
                 },
             ],
             temperature=0.2,

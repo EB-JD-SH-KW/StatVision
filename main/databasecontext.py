@@ -45,7 +45,7 @@ MLB Database Schema (Schema: MLB)
   - complete_games, shutouts, saves, outs_pitches, hits_allowed, homeruns_allowed
   - walks_allowed, strikeouts_by_pitchers, errors, double_plays, fielding_percentage
   - team_name, ball_park, home_attendance
-
+s
 **2. MLB.HitterStatsyyyy**
 - One table per season from 1871 to 2021, e.g., `MLB.HitterStats1998`
 - Columns:
