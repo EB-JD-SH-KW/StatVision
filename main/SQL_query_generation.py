@@ -1,7 +1,9 @@
 import openai
 from django.conf import settings
 from .databasecontext import db_context
-import os
+import os 
+import json
+
 from dotenv import load_dotenv
 
 
@@ -25,10 +27,7 @@ def generate_sql_query(english_query):
         )
 
         sql_query = response['choices'][0]['message']['content'].strip()
-
-        #show token usage
-        print("Token usage:", response['usage'])
-
+        
         return sql_query
 
     except Exception as e:
@@ -54,19 +53,22 @@ def generate_users_results(question, results):
         )
 
         user_results = response['choices'][0]['message']['content'].strip()        
-        print("Token usage:", response['usage'])
 
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
                     "role": "system",
-                    "content": "You are generating a python dictionary to be passed into a function, only include the python dictionary with NO ADDITIONAL CHARACTERS"
+                    "content": "You are generating a python dictionary to be passed into a function , with key's using double quoted strings instead of single quotes. Only include the python dictionary with NO ADDITIONAL CHARACTERS. Please assign keys and values to mimic a sql query result"
                 },
                 {
                     "role": "system",
-                    "content": f"create this sentence into a list of dictionaries to use in python, {user_results}"
+                    "content": f"create this sentence into a python dictionary DO NOT CREATE A DICTIONARY OF DICTIONARIES OR A LIST OF DICTIONARIES, {user_results}"
                 },
+                {
+                    "role": "system",
+                    "content": """Desired Output Example: {"Player": "Aaron Rodgers", "Year": 2011, "Passing Yards": 4643, "Completion Rate": 68.3, "Passer Rating": 122.5}"""
+                }
             ],
             temperature=0.2,
             max_tokens=1024
@@ -74,7 +76,6 @@ def generate_users_results(question, results):
         table_results = response['choices'][0]['message']['content'].strip()
 
         
-        print("Token usage:", response['usage'])
         return user_results, table_results
     
     except Exception as e:
@@ -95,15 +96,27 @@ def clean_sql_query(query):
         # Return the query as is if it doesn't start with '```sql' or ends with '```'
         return query
     
-def clean_python_table(query):
-    # Check if the query starts with '```sql' and ends with '```'
-    if query is None:
+def clean_python_table(table):
+
+    if table is None:
         return None
-    
-    if query.startswith("```python") and query.endswith("```"):
+    #print(table)
+    if table.startswith("```python") and table.endswith("```"):
         # Remove the starting '```sql' and ending '```'
-        cleaned_query = query[9:-3].strip()  # 6 is the length of '```sql' and 3 is for closing '```'
-        return cleaned_query
+        cleaned_table = table[9:-3].strip()  # 9 is the length of '```python' and 3 is for closing '```'
+
+        #Check for double quotes
+        cleaned_table = cleaned_table.replace("'", '"')
+        print(cleaned_table)
+        payload = json.loads(cleaned_table)
+        print("table_result_type",type(payload))
+        print(payload)
+        return payload
     else:
-        # Return the query as is if it doesn't start with '```sql' or ends with '```'
-        return query
+        # Return the table as is if it doesn't start with '```sql' or ends with '```'
+        payload = table.replace("'", '"')
+        print(payload)
+        payload = json.loads(table)
+        print("table_result_type",type(payload))
+        print(payload)
+        return payload

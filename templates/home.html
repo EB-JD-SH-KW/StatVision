@@ -13,7 +13,7 @@ Home | StatVision
 
 {% block main %}
 
-<h1 class="main-heading">Home</h1>
+<h1 class="main-heading"></h1>
     <style>
         /* Set the entire page background color to white */
         body {
@@ -37,35 +37,30 @@ Home | StatVision
         }
     </style>
     <div class="home">
-        <h1 class="main-heading">The Automated Deployment Worked</h1>
         <!-- Conditional Display of Results -->
         {% if results %}
-            <div class="results" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 20px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto; color: #4B96E1">
-                <p>{{ results }}</p>
-            </div>
-
-        <!-- Table for Results --> 
-        <table style="width: 100%; margin-top: 20px; border-collapse: collapse; text-align: left;">
+        <div class="results" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 10px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto;">
+            <p style="color: #4B96E1 ">{{ results }}</p>
+        </div>
+    {% endif %}
+    {% if table_result %}
+        <table style="margin-top: 20px; text-align: center;  padding: 10px; padding-top:25px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto; margin-top: 100px;">
             <thead>
-                <tr style="background-color: #f2f2f2;">
-                    <!-- Dynamically generate table headers from the first row's keys -->
-                    {% for column in table_result.0.keys %}
-                        <th style="padding: 8px; border: 1px solid #ddd;">{{ column }}</th>
+                <tr style="background-color: rgb(23, 23, 23);">
+                    {% for key in table_result.keys %}
+                        <th style="padding: 12px; text-align: left; border: 1px solid #4B96E1; color: #4B96E1;">{{ key }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                <!-- Loop through all rows (dictionaries) in table_result and create table rows -->
-                {% for result in table_result %}
-                    <tr>
-                        {% for key, value in result.items %}
-                            <td style="padding: 8px; border: 1px solid #ddd;">{{ value }}</td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
+                <tr>
+                    {% for value in table_result.values %}
+                        <td style="padding: 12px; border: 1px solid #4B96E1; color: #4B96E1;">{{ value }}</td>
+                    {% endfor %}
+                </tr>
             </tbody>
         </table>
-        {% endif %}
+    {% endif %}
     </div>
 <div class="home">
     <!-- Place Content Here -->
