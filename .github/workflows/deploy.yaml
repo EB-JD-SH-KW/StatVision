@@ -73,7 +73,7 @@ jobs:
             # Export the commit sha as an environment variable inside the script
             export GITHUB_SHA=${{ github.sha }}
 
-            export OPEN_AI_KEY=${{ secrets.OPEN_AI_KEY }}
+            export OPEN_AI_KEY=${{ vars.OPEN_AI_KEY }}
 
             # Build the docker image without using any cache
             docker compose build --no-cache StatVision
