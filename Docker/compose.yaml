@@ -8,25 +8,27 @@ services:
     build:
 
       # Use the current directory as the build context
-      context: .
+      context: ..
 
       # Use the specified Dockerfile to build the image
-      dockerfile: Dockerfile
+      dockerfile: Docker/Dockerfile
 
-    # Specify commands to run the django development server
-    command: 
-      python3 manage.py runserver 0.0.0.0:8000
+    # Specify entrypoint command to run on the django server
+    entrypoint: ./Docker/entrypoint.sh
+
+    environment:
+      - GITHUB_SHA=${GITHUB_SHA}
 
     # Name the docker container
-    container_name: StatVision_Docker_Container
+    container_name: statvision-container
     
     # Name the docker image
-    image: statvision_docker_image
+    image: statvision-image
 
-    # Map port 8000 on the host to port 8000 in the container
+    # Map port 80 on the host to port 5000 in the container
     ports:
-      - "8000:8000"
+      - "80:8000"
 
     # Mount the current directory to /home/docker in the container
     volumes:
-      - ./..:/home/docker
+      - ./..:/home/docker:ro

@@ -1,0 +1,88 @@
+# This GitHub Actions workflow file deploys the latest commit to a remote server.
+#
+# Functionality:
+#   - The workflow triggers on push events on any branch that contains this file.
+#   - It checks out the repository code and connects to a remote server via ssh.
+#   - It updates the repository to the commit that triggered the workflow.
+#   - It then runs docker compose to deploy the latest code.
+
+# Set the name of the workflow
+name: Deploy
+
+# Define the event triggers for the workflow
+on:
+  # Trigger workflow on push events
+  push:
+
+# Define the jobs that will run in this workflow
+jobs:
+
+  # Define a job name
+  deploy:
+  
+    # Specify that the job should run on the latest Ubuntu runner
+    runs-on: ubuntu-latest
+
+    # Define the steps to be executed for the 'deploy' job.
+    steps:
+
+      # Define a step to checkout the repository code
+      - name: Initialize Codebase
+
+        # Use the official checkout action
+        uses: actions/checkout@v3
+
+      # Define a step to deploy the code to the remote server via ssh
+      - name: Deploy
+
+        # Use the appleboy ssh action to execute commands on the remote server
+        uses: appleboy/ssh-action@v0.1.5
+
+        # Specify the input parameters for the ssh action
+        with:
+
+          # Set the remote server using a repository variable
+          host: ${{ vars.REMOTE_HOST }}
+
+          # Set the remote server ssh username using a repository variable
+          username: ${{ vars.REMOTE_USER }}
+
+          # Set the ssh private key for authentication using a secret
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+
+          # Define a multi-line script to be executed on the remote server
+          script: |
+            
+            # Clone the repository if it does not exist
+            if [ ! -d "StatVision" ]; then
+                git clone https://github.com/EB-JD-SH-KW/StatVision.git
+            fi
+
+            # Change directory to the root of the repository
+            cd StatVision
+
+            # Stop and remove any running compose services
+            docker compose down
+
+            # Fetch all updates from the remote origin
+            git fetch origin
+
+            # Reset the working tree to the specific commit SHA
+            git reset --hard ${{ github.sha }}
+
+            # Export the commit sha as an environment variable inside the script
+            export GITHUB_SHA=${{ github.sha }}
+
+            export OPEN_AI_KEY=${{ secrets.OPEN_AI_KEY }}
+
+            # Build the docker image without using any cache
+            docker compose build --no-cache StatVision
+
+            # Prune old docker images after new one is created
+            docker image prune -f
+
+            # Ensure the entrypoint script is executable
+            chmod +x Docker/entrypoint.sh
+
+            # Start the compose services in detached mode and remove orphaned containers
+            docker compose up --remove-orphans --detach
