@@ -33,6 +33,7 @@ def autocomplete(request):
 
 def home(request):
     return render(request, 'home.html')
+    
 
 def mlb(request):
     return render(request, 'mlb.html')
@@ -82,36 +83,35 @@ def terms(request):
     return render(request, 'terms.html')
 
 def search_view(request):
-    search_query = None 
-    results = None 
+    try:
+        search_query = None 
+        results = None 
+        error_message = "Hello"
+        if request.method == 'POST': 
+                search_query = request.POST.get('search_query') 
+                print(f"User search: {search_query}") 
 
-    if request.method == 'POST': 
-        search_query = request.POST.get('search_query') 
-        print(f"User search: {search_query}") 
-
-        if search_query: 
-            try:
-                sql_query = generate_sql_query(search_query) 
-                print(f"sql_query: {sql_query}") 
-                sql_query = clean_sql_query(sql_query)
-                print(f"sql_query_cleaned:{sql_query}")
-                sql_results = execute_sql_query(sql_query) 
-                print(f"sql Result: {sql_results}")
-                results, table_result = generate_users_results(search_query ,sql_results)
-                if results.startswith("Sorry"):
-                    table_result = None
-                else:
-                    table_result = clean_python_table(table_result)
-                print(f"Search Results: {results}") 
-
-                return render(request, 'home.html', {
-                'results': results,
-                'table_result': table_result
-                })
-            except Exception as e:
-                print(f"Error during search: {e}")
-                #messages.error(request, "Something went wrong. Please try again.")
-                return render(request, 'home.html')
+                if search_query: 
+                    sql_query = generate_sql_query(search_query) 
+                    print(f"sql_query: {sql_query}") 
+                    sql_query = clean_sql_query(sql_query)
+                    print(f"sql_query_cleaned:{sql_query}")
+                    sql_results = execute_sql_query(sql_query) 
+                    print(f"sql Result: {sql_results}")
+                    results, table_result = generate_users_results(search_query ,sql_results)
+                    if results.startswith("Sorry"):
+                        table_result = None
+                    else:
+                        table_result = clean_python_table(table_result)
+                    print(f"Search Results: {results}") 
+                    return render(request, 'home.html', {
+                    'results': results,
+                    'table_result': table_result
+                    })
+    except Exception as e:
+        print(f"Error during search: {e}")
+        error_message = "Sorry"
+        return render(error_message, 'home.html')
 
             
         

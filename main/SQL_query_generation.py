@@ -111,7 +111,7 @@ def clean_python_table(table):
         payload = json.loads(cleaned_table)
         print("table_result_type",type(payload))
         print(payload)
-        return payload
+        return 400
     else:
         # Return the table as is if it doesn't start with '```sql' or ends with '```'
         payload = table.replace("'", '"')
@@ -119,4 +119,4 @@ def clean_python_table(table):
         payload = json.loads(table)
         print("table_result_type",type(payload))
         print(payload)
-        return payload
+        return 400
