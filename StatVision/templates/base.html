@@ -35,17 +35,29 @@
                 <p id="site-name"><a href="{% url 'home' %}">StatVision</a></p>
 
 
-                <form id="search" action="/search-query/" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1;">
+                <form id="search" action="/search-query/" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1; display: flex";>
                     {% csrf_token %}
-                    <input type="text" name = "search_query" id="search-input" placeholder="Search" autocomplete="off" style="color: #4B96E1;" />
+                    <input type="text" name = "search_query" id="search-input" placeholder="Search" autocomplete="off"  style="
+                    flex: 1;
+                    min-width: 0;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: #4B96E1;
+                    font-size: 1rem;
+                    padding: 0.5rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    " />
                     <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <button type="button" id="clear-icon" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
                     
-                    <ul id="autocomplete-list">
+                    <!-- <ul id="autocomplete-list">
                         <li id="autocomplete-item"><a href="{% url 'mlb' %}"><i class="fa-solid fa-baseball-ball fa-xl"></i>MLB</a></li>
                         <li id="autocomplete-item"><a href="{% url 'nba' %}"><i class="fa-solid fa-basketball-ball fa-xl"></i>NBA</a></li>
                         <li id="autocomplete-item"><a href="{% url 'nfl' %}"><i class="fa-solid fa-football-ball fa-xl"></i>NFL</a></li>
-                    </ul>
+                    </ul> -->
 
                 </form>
 

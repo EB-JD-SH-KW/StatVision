@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-)8lam30s3@9ow6njtzbtq+1zri=8=&8#a2o(4*ep%+#3w8!%(0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1']
+ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1', 'statvision.net']
 
 
-# Application definition
+# Application definitions
 
 INSTALLED_APPS = [
     'django.contrib.admin',
