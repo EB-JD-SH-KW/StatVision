@@ -9,15 +9,16 @@
 #   - Bring up Docker Compose services in detached mode.
 
 
+
+git config --global --add safe.directory /home/docker
+
 # Fetch the latest changes from the origin.
 git fetch origin
 
 # Reset the repository to the commit that triggered the workflow.
 git reset --hard "${GITHUB_SHA}"
 
-# python3 manage.py migrate
+# python manage.py migrate
 
 # Run Docker Compose in detached mode to deploy services.
-python3 manage.py runserver
-
-# Optionally, you can add further commands here such as health checks or log tailing.
+python manage.py runserver 0.0.0.0:8000

@@ -2,9 +2,9 @@
 #
 # Functionality:
 #   - The workflow triggers on push events on any branch that contains this file.
-#   - It checks out the repository code and connects to a remote server via SSH.
+#   - It checks out the repository code and connects to a remote server via ssh.
 #   - It updates the repository to the commit that triggered the workflow.
-#   - It then runs Docker Compose to deploy the latest code.
+#   - It then runs docker compose to deploy the latest code.
 
 # Set the name of the workflow
 name: Deploy
@@ -52,11 +52,37 @@ jobs:
 
           # Define a multi-line script to be executed on the remote server
           script: |
-            # Change directory to the repository on the remote server.
+            
+            # Clone the repository if it does not exist
+            if [ ! -d "StatVision" ]; then
+                git clone https://github.com/EB-JD-SH-KW/StatVision.git
+            fi
+
+            # Change directory to the root of the repository
             cd StatVision
-            # Fetch the latest commits from the origin.
+
+            # Stop and remove any running compose services
+            docker compose down
+
+            # Fetch all updates from the remote origin
             git fetch origin
-            # Reset the repository to the commit that triggered this workflow.
+
+            # Reset the working tree to the specific commit SHA
             git reset --hard ${{ github.sha }}
-            # Run Docker Compose in detached mode to deploy the services.
-            docker compose up -d
+
+            # Export the commit sha as an environment variable inside the script
+            export GITHUB_SHA=${{ github.sha }}
+
+            export OPEN_AI_KEY=${{ secrets.OPEN_AI_KEY }}
+
+            # Build the docker image without using any cache
+            docker compose build --no-cache StatVision
+
+            # Prune old docker images after new one is created
+            docker image prune -f
+
+            # Ensure the entrypoint script is executable
+            chmod +x Docker/entrypoint.sh
+
+            # Start the compose services in detached mode and remove orphaned containers
+            docker compose up --remove-orphans --detach
