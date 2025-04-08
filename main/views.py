@@ -13,6 +13,7 @@ from datetime import date
 import requests
 
 
+
 class UsernameChangeForm(forms.ModelForm):
     class Meta:
         model = User
@@ -149,7 +150,6 @@ def results(request):
 
 
 def fetch_league_events(path, date_params, league_abbr):
-    """Fetch scoreboard events for a league."""
     url = f'https://sports-information.p.rapidapi.com/{path}'
     headers = {
         'X-RapidAPI-Key': settings.RAPIDAPI_KEY,
@@ -163,7 +163,6 @@ def fetch_league_events(path, date_params, league_abbr):
     return events
 
 def fetch_standings(path, year, group='league'):
-    """Fetch and group standings entries by conference and division."""
     params = {'year': year}
     if group:
         params['group'] = group
