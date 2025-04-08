@@ -2,11 +2,6 @@
 # Start with a minimal Python 3.12 image. (slim version for smaller size).
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y \
-    libmariadb-dev \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
 # Set an environment variable to prevent Python from buffering stdout/stderr.
 ENV PYTHONUNBUFFERED=1
 
