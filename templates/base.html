@@ -1,6 +1,6 @@
-<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
-<!--    Creation Date:      August 15, 2024                                                 -->
-<!--    Project Name:       StatVision                                                      -->
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
 
 {% load static %}
 
@@ -16,8 +16,6 @@
         <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-        
     </head>
 
     <body>
@@ -35,7 +33,7 @@
                 <p id="site-name"><a href="{% url 'home' %}">StatVision</a></p>
 
 
-                <form id="search" action="/search-query/" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1;">
+                <form id="search" action="{% url 'results' %}" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1;">
                     {% csrf_token %}
                     <input type="text" name = "search_query" id="search-input" placeholder="Search" autocomplete="off" style="color: #4B96E1;" />
                     <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -68,10 +66,12 @@
 
             </header>
 
+
             <main>
                 {% block main %}
                 {% endblock %}
             </main>
+
 
             <footer>
 
@@ -92,7 +92,7 @@
             </footer>
 
         </div>
-        <script src="{% static 'js/base.js' %}" type="text/javascript" defer></script>
+        <!-- <script src="{% static 'js/base.js' %}" type="text/javascript" defer></script> -->
     </body>
 
 </html>

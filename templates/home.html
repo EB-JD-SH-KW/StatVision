@@ -1,6 +1,6 @@
-<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
-<!--    Creation Date:      August 15, 2024                                                 -->
-<!--    Project Name:       StatVision                                                      -->
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
 
 {% extends "base.html" %}
 
@@ -11,59 +11,13 @@ Home | StatVision
 {% endblock %}
 
 
+
 {% block main %}
 
-<h1 class="main-heading"></h1>
-    <style>
-        /* Set the entire page background color to white */
-        body {
-            background-color: rgb(23, 23, 23);
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+{% include "scoreboard.html" with events=events limit=10 %}
 
-        /* Wrapper should fill the entire screen */
-        .wrapper {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Optional: You can also set a background color for the footer and header, if needed */
-
-        main {
-            flex: 1; /* Ensures main content takes up remaining space */
-        }
-    </style>
-    <div class="home">
-        <!-- Conditional Display of Results -->
-        {% if results %}
-        <div class="results" style="margin-top: 20px; text-align: center; border: 2px solid #4B96E1; padding: 10px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto;">
-            <p style="color: #4B96E1 ">{{ results }}</p>
-        </div>
-    {% endif %}
-    {% if table_result %}
-        <table style="margin-top: 20px; text-align: center;  padding: 10px; padding-top:25px; border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto; margin-top: 100px;">
-            <thead>
-                <tr style="background-color: rgb(23, 23, 23);">
-                    {% for key in table_result.keys %}
-                        <th style="padding: 12px; text-align: left; border: 1px solid #4B96E1; color: #4B96E1;">{{ key }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {% for value in table_result.values %}
-                        <td style="padding: 12px; border: 1px solid #4B96E1; color: #4B96E1;">{{ value }}</td>
-                    {% endfor %}
-                </tr>
-            </tbody>
-        </table>
-    {% endif %}
-    </div>
 <div class="home">
-    <!-- Place Content Here -->
+  <!-- Place Content Here -->
 </div>
 
 {% endblock %}

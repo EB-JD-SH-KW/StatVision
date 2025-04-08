@@ -1,6 +1,6 @@
-<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
-<!--    Creation Date:      August 15, 2024                                                 -->
-<!--    Project Name:       StatVision                                                      -->
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
 
 {% extends "base.html" %}
 
@@ -13,10 +13,12 @@ MLB | StatVision
 
 {% block main %}
 
-<h1 class="main-heading">MLB</h1>
 
-<div class="mlb">
-    <!-- Place Content Here -->
-</div>
+{% include "scoreboard.html" with events=events limit=10 %}
+
+<h1 class="main-heading">MLB Standings</h1>
+
+{% include "standings.html" with standings=standings %}
+
 
 {% endblock %}

@@ -386,3 +386,125 @@ main
         {
             background-color: skyblue;
         }
+.scoreboard
+{
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    margin: 0px;
+    padding: 5px;
+    overflow-x: auto;
+    border: 1px solid black;
+}
+    .scoreboard:active {
+        user-select: none;
+    }
+    .scoreboard::-webkit-scrollbar {
+        display: none;
+    }
+    .scoreboard #scorecard
+    {
+        flex: 0 0 135px;
+        border: 1px solid lightgray;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+        #scorecard #home-team, 
+        #scorecard #away-team
+        {
+            align-items: center;
+            box-sizing: border-box;
+            display: flex;
+            height: 50%;
+            justify-content: flex-start;
+            padding: 5px;
+            width: 100%;
+        }
+            #home-team img, 
+            #away-team img
+            {
+                height: calc(12px + 0.390625vw);
+                margin-right: 4px;
+                object-fit: contain;
+                width: calc(12px + 0.390625vw);
+            }
+            #home-team span, 
+            #away-team span
+            {
+                font-size: calc(7px + 0.390625vw);
+                font-weight: bold;
+            }
+            #home-team time, 
+            #away-team p
+            {
+                color: gray;
+                flex-shrink: 0;
+                font-size: calc(3px + 0.390625vw);
+                margin: 0 0 0 auto;
+                text-align: right;
+            }
+.standings {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.standings ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* one row per team */
+  grid-auto-rows: auto;
+  /* gap between rows if desired */
+  row-gap: 0.5rem;
+}
+
+.standings .team {
+  display: grid;
+  align-items: center;
+  /* six columns: logo, name, wins, losses, pct, gb */
+  grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.standings .team img#logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  justify-self: center;
+}
+
+.standings .team span {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Header row styling (if you add a header) */
+.standings .header {
+  font-weight: bold;
+  background: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  /* stack labels on small screens */
+  .standings .team {
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "logo name"
+      "logo wins"
+      "logo losses"
+      "logo pct"
+      "logo gb";
+  }
+  .standings .team span { text-align: left; }
+  .standings .team span#team-name { grid-area: name; }
+  .standings .team span#team-wins { grid-area: wins; }
+  .standings .team span#team-losses { grid-area: losses; }
+  .standings .team span#team-win-percentage { grid-area: pct; }
+  .standings .team span#team-games-behind { grid-area: gb; }
+}
