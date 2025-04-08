@@ -26,7 +26,20 @@ class UsernameChangeForm(forms.ModelForm):
 
 
 def about(request):
-    return render(request, 'about.html')
+    today = date.today()
+    date_params = {'year': today.year, 'month': today.month, 'day': today.day, 'limit': 10}
+    all_events = []
+    for abbr, path in [('MLB','mlb/scoreboard'),('NBA','nba/scoreboard'),('NFL','nfl/scoreboard')]:
+        try:
+            all_events += fetch_league_events(path, date_params, abbr)
+        except:
+            pass
+    all_events.sort(key=lambda e: e.get('date',''))
+    return render(request, 'about.html', {
+        'events': all_events,
+        'today': today,
+        'league_name': None,
+    })
 
 def autocomplete(request):
     return render(request, 'autocomplete.html')

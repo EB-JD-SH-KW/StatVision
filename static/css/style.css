@@ -390,17 +390,20 @@ main
 .scoreboard
 {
     align-items: center;
+    color: RGB(75, 150, 225);
     display: flex;
-    justify-content: left;
+    justify-content: center;
     margin: 0px;
     padding: 5px;
     overflow-x: auto;
     border: 1px solid black;
 }
-    .scoreboard:active {
+    .scoreboard:active
+    {
         user-select: none;
     }
-    .scoreboard::-webkit-scrollbar {
+    .scoreboard::-webkit-scrollbar
+    {
         display: none;
     }
     .scoreboard #scorecard
@@ -447,79 +450,75 @@ main
                 margin: 0 0 0 auto;
                 text-align: right;
             }
-.standings {
-  width: 100%;
-  overflow-x: auto;
+.standings
+{
+    color: RGB(75, 150, 225);
+    width: 100%;
+    overflow-x: auto;
 }
+    .standings ul
+    {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-auto-rows: auto;
+        row-gap: 0.5rem;
+    }
+    .standings .team
+    {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
+        padding: 0.5rem;
+        border-bottom: 1px solid #ddd;
+    }
+        .team img#logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            justify-self: center;
+        }
+        .team span
+        {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    .standings .header
+    {
+        font-weight: bold;
+        background: #f0f0f0;
+    }
 
-.standings ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  /* one row per team */
-  grid-auto-rows: auto;
-  /* gap between rows if desired */
-  row-gap: 0.5rem;
+@media (max-width: 600px)
+{
+    .standings .team
+    {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas:
+        "logo name"
+        "logo wins"
+        "logo losses"
+        "logo pct"
+        "logo gb";
+    }
+    .standings .team span { text-align: left; }
+    .standings .team span#team-name { grid-area: name; }
+    .standings .team span#team-wins { grid-area: wins; }
+    .standings .team span#team-losses { grid-area: losses; }
+    .standings .team span#team-win-percentage { grid-area: pct; }
+    .standings .team span#team-games-behind { grid-area: gb; }
 }
-
-.standings .team {
-  display: grid;
-  align-items: center;
-  /* six columns: logo, name, wins, losses, pct, gb */
-  grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ddd;
-}
-
-.standings .team img#logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  justify-self: center;
-}
-
-.standings .team span {
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* Header row styling (if you add a header) */
-.standings .header {
-  font-weight: bold;
-  background: #f0f0f0;
-}
-
-@media (max-width: 600px) {
-  /* stack labels on small screens */
-  .standings .team {
-    grid-template-columns: 40px 1fr;
-    grid-template-rows: auto auto auto auto auto;
-    grid-template-areas:
-      "logo name"
-      "logo wins"
-      "logo losses"
-      "logo pct"
-      "logo gb";
-  }
-  .standings .team span { text-align: left; }
-  .standings .team span#team-name { grid-area: name; }
-  .standings .team span#team-wins { grid-area: wins; }
-  .standings .team span#team-losses { grid-area: losses; }
-  .standings .team span#team-win-percentage { grid-area: pct; }
-  .standings .team span#team-games-behind { grid-area: gb; }
-}
-
-
-    /* team specific page styles */
-.team-container {
+.team-container
+{
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
     color: #333;
 }
-
-.team-header {
+.team-header
+{
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -529,159 +528,154 @@ main
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.team-logo {
+.team-logo
+{
     width: 150px;
     height: 150px;
     object-fit: contain;
 }
-
-.team-info h1 {
+.team-info h1
+{
     margin: 0;
     font-size: 2.5rem;
     color: #4B96E1;
 }
-
-.team-short-name {
+.team-short-name
+{
     color: #666;
     font-size: 1.5rem;
 }
-
-.team-meta {
+.team-meta
+{
     margin-top: 0.5rem;
     color: #666;
 }
-
-.team-meta span {
+.team-meta span
+{
     display: inline-block;
     margin-right: 1rem;
     padding: 0.25rem 0.5rem;
     background-color: #e9ecef;
     border-radius: 4px;
 }
-
-.team-stats {
+.team-stats
+{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
 }
-
-.stat-card {
+.stat-card
+{
     padding: 1rem;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.stat-card h3 {
+.stat-card h3
+{
     margin-top: 0;
     color: #4B96E1;
     border-bottom: 1px solid #eee;
     padding-bottom: 0.5rem;
 }
-
-.big-stat {
+.big-stat
+{
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0.5rem 0;
 }
-
-.division-standings {
+.division-standings
+{
     background-color: #fff;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.division-standings h2 {
+.division-standings h2
+{
     color: #4B96E1;
     margin-top: 0;
 }
-
-table {
+table
+{
     width: 100%;
     border-collapse: collapse;
 }
-
-th, td {
+th, td
+{
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
-
-th {
+th
+{
     background-color: #f8f9fa;
     font-weight: bold;
 }
-
-.small-logo {
+.small-logo
+{
     width: 30px;
     height: 30px;
     vertical-align: middle;
     margin-right: 0.5rem;
 }
-
 .current-team {
     background-color: #f0f7ff;
     font-weight: bold;
 }
-
 @media (prefers-color-scheme: dark) {
     .team-container {
         color: #f8f9fa;
     }
-    
     .team-header,
     .stat-card,
     .division-standings {
         background-color: #2d3748;
     }
-    
     .team-meta span {
         background-color: #4a5568;
         color: #f8f9fa;
     }
-    
     th {
         background-color: #4a5568;
     }
-    
     .current-team {
         background-color: #2c5282;
     }
-.playoff-status {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.playoff-status.clinched {
-    color: #28a745;
-}
-
-.playoff-status.eliminated {
-    color: #dc3545;
-}
-
-.gb-leader {
-    font-weight: bold;
-    color: #4B96E1;
-}
-
-@media (max-width: 768px) {
-    .team-stats {
-        grid-template-columns: 1fr 1fr;
+    .playoff-status {
+        font-weight: bold;
+        text-transform: uppercase;
     }
-    
-    .team-header {
-        flex-direction: column;
-        text-align: center;
+    .playoff-status.clinched {
+        color: #28a745;
     }
-    
-    .team-logo {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 1rem;
+    .playoff-status.eliminated {
+        color: #dc3545;
     }
-}
+
+    .gb-leader {
+        font-weight: bold;
+        color: #4B96E1;
+    }
+    @media (max-width: 768px)
+    {
+        .team-stats
+        {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .team-header
+        {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .team-logo
+        {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+    }
 }

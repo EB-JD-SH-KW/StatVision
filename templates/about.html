@@ -13,6 +13,8 @@ About | StatVision
 
 {% block main %}
 
+{% include "scoreboard.html" with events=events limit=10 %}
+
 <h1 class="main-heading">About</h1>
 
 <div class="about">
