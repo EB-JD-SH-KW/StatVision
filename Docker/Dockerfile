@@ -14,7 +14,7 @@ RUN apt update && apt install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory inside the container.
-WORKDIR /app
+WORKDIR /home/docker
 
 # Copy the requirements file from the host system to the container's working directory.
 COPY requirements.txt requirements.txt
