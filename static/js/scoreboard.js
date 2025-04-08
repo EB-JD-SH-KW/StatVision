@@ -1,6 +1,6 @@
-/*--    Authors:   			Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     --*/
-/*--    Creation Date:  	August 15, 2024                                                 --*/
-/*--    Project Name:   	StatVision                                                      --*/
+/*--    Authors:   			Eric Bridgens | Joshua Dickens | Kyle Willoughby    --*/
+/*--    Creation Date:  	August 15, 2024                                     --*/
+/*--    Project Name:   	StatVision                                          --*/
 
 
 

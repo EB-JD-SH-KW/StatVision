@@ -1,6 +1,6 @@
 #Ignore keys
 .env
+.pem
 
 #Ignore python cache
-
 __pycache__/

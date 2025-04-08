@@ -160,20 +160,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
-RAPIDAPI_KEY = 'f67f29274dmsh8358ea60c752314p17b1e0jsn11971d87397c'
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {'class': 'logging.StreamHandler'},
-    },
-    'loggers': {
-        # Root logger
-        '': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    },
-}
+RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')

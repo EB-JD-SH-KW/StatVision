@@ -1,35 +1,22 @@
 from django.shortcuts import render, redirect
 from django import forms
 from django.conf import settings
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
 from .execute_sql import execute_sql_query
 from .SQL_query_generation import generate_sql_query, generate_users_results, clean_sql_query, clean_python_table
 from .forms import *
 from .models import *
-import openai
 from datetime import date
-
-import logging
 import requests
 
-# Create a module‑level logger
-logger = logging.getLogger(__name__)
-
-# class SignUpView(CreateView):
-#     template_name = 'sign_up.html'
-#     form_class = CustomUserCreationForm
-#     success_url = reverse_lazy('sign-in')
 
 class UsernameChangeForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username']
-
 
 
 def about(request):
@@ -129,59 +116,36 @@ def terms(request):
     return render(request, 'terms.html')
 
 def results(request):
-    search_query = None 
-    results = None 
+    try:
+        search_query = None 
+        results = None 
 
-    if request.method == 'POST': 
-        search_query = request.POST.get('search_query') 
-        print(f"User search: {search_query}") 
+        if request.method == 'POST': 
+            search_query = request.POST.get('search_query') 
+            print(f"User search: {search_query}") 
 
-        if search_query: 
-            sql_query = generate_sql_query(search_query) 
-            print(f"sql_query: {sql_query}")
-            sql_query = clean_sql_query(sql_query)
-            print(f"sql_query_cleaned:{sql_query}")
-            sql_results = execute_sql_query(sql_query)
-            results, table_result = generate_users_results(search_query ,sql_results)
-            table_result = clean_python_table(table_result)
-            print(f"Search Results: {results}")
+            if search_query: 
+                sql_query = generate_sql_query(search_query) 
+                print(f"sql_query: {sql_query}") 
+                sql_query = clean_sql_query(sql_query)
+                print(f"sql_query_cleaned:{sql_query}")
+                sql_results = execute_sql_query(sql_query) 
+                results, table_result = generate_users_results(search_query ,sql_results)
+                if results.startswith("Sorry"):
+                    table_result = None
+                else:
+                    table_result = clean_python_table(table_result)
+                print(f"Search Results: {results}") 
 
-    return render(request, 'results.html', {
+        return render(request, 'results.html', {
         'results': results,
         'table_result': table_result
-    })
+        })
+    except Exception as e:
+        print(f"Error during search: {e}")        
+        error_message = "Something went wrong, please try again."
+        return render(request, 'results.html', {'results': error_message})
 
-            
-# def fetch_league_events(path, date_params, league_abbr):
-#     url = f'https://sports-information.p.rapidapi.com/{path}'
-#     headers = {
-#         'X-RapidAPI-Key': settings.RAPIDAPI_KEY,
-#         'X-RapidAPI-Host': 'sports-information.p.rapidapi.com'
-#     }
-#     resp = requests.get(url, headers=headers, params=date_params, timeout=5)
-#     resp.raise_for_status()
-#     events = resp.json().get('events', [])
-    
-#     # Add the league abbreviation to each event for later use
-#     for e in events:
-#         e['league'] = league_abbr
-#         # Loop over each competition in the event
-#         for comp in e.get('competitions', []):
-#             # Check if the game has started (assume state is in comp.status.type.state)
-#             # Adjust this check based on the actual API response.
-#             if comp.get('status', {}).get('type', {}).get('state', 'pre') != 'pre':
-#                 # For each competitor, update the values that will be displayed
-#                 for competitor in comp.get('competitors', []):
-#                     if competitor.get('homeAway') == 'home':
-#                         # Replace the time display with the home team score.
-#                         # This assumes competitor.score is available.
-#                         comp['status']['type']['shortDetail'] = competitor.get('score', comp['status']['type'].get('shortDetail'))
-#                     elif competitor.get('homeAway') == 'away':
-#                         # Replace the odds spread with the away team score.
-#                         # This assumes that competition.odds is a list and competitor.score is available.
-#                         if comp.get('odds') and isinstance(comp['odds'], list) and len(comp['odds']) > 0:
-#                             comp['odds'][0]['spread'] = competitor.get('score', comp['odds'][0].get('spread'))
-#     return events
 
 
 def fetch_league_events(path, date_params, league_abbr):

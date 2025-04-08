@@ -45,9 +45,9 @@ MLB Database Schema (Schema: MLB)
   - complete_games, shutouts, saves, outs_pitches, hits_allowed, homeruns_allowed
   - walks_allowed, strikeouts_by_pitchers, errors, double_plays, fielding_percentage
   - team_name, ball_park, home_attendance
-
+s
 **2. MLB.HitterStatsyyyy**
-- One table per season from 1871 to 2021, e.g., `MLB.HitterStats1998`
+- One table per season from 1871 to 2024, e.g., `MLB.HitterStats1998`
 - Columns:
   - id, name, url, year, Age, team_name, league_id, games_played, PA, at_bats
   - runs_scored, hits, doubles, triples, homeruns, RBI, stolen_bases, caught_stealing
@@ -81,7 +81,7 @@ NFL Database Schema (Schema: NFL)
   - One table per season from 1970 to 2024, e.g., `NFL.PlayerStats2019`
   - Columns (multi-role player data — passing, rushing, receiving, defense, special teams):
     - id, PLAYER
-    - PASS YDS, YDS/ATT, ATT, CMP, CMP %, TD, INT, RATE, 1ST, 1ST%, 20+, 40+, LNG, SCK, SCKY
+    - PASS YDS, YDS/ATT, ATT, CMP, CMP %, PassingTD, TD, INT, RATE, 1ST, 1ST%, 20+, 40+, LNG, SCK, SCKY
     - RUSH YDS, RUSH 1ST, RUSH 1ST%, RUSH FUM
     - REC, YDS, REC 1ST, REC FUM, REC YAC/R, TGTS
     - COMB, ASST, SOLO
