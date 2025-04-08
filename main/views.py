@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
-#from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .execute_sql import execute_sql_query
@@ -33,7 +32,6 @@ def autocomplete(request):
 
 def home(request):
     return render(request, 'home.html')
-    
 
 def mlb(request):
     return render(request, 'mlb.html')
@@ -82,36 +80,36 @@ def sign_up(request):
 def terms(request):
     return render(request, 'terms.html')
 
-def search_view(request):
+def results(request):
     try:
         search_query = None 
         results = None 
-        error_message = "Hello"
-        if request.method == 'POST': 
-                search_query = request.POST.get('search_query') 
-                print(f"User search: {search_query}") 
 
-                if search_query: 
-                    sql_query = generate_sql_query(search_query) 
-                    print(f"sql_query: {sql_query}") 
-                    sql_query = clean_sql_query(sql_query)
-                    print(f"sql_query_cleaned:{sql_query}")
-                    sql_results = execute_sql_query(sql_query) 
-                    print(f"sql Result: {sql_results}")
-                    results, table_result = generate_users_results(search_query ,sql_results)
-                    if results.startswith("Sorry"):
-                        table_result = None
-                    else:
-                        table_result = clean_python_table(table_result)
-                    print(f"Search Results: {results}") 
-                    return render(request, 'home.html', {
-                    'results': results,
-                    'table_result': table_result
-                    })
+        if request.method == 'POST': 
+            search_query = request.POST.get('search_query') 
+            print(f"User search: {search_query}") 
+
+            if search_query: 
+                sql_query = generate_sql_query(search_query) 
+                print(f"sql_query: {sql_query}") 
+                sql_query = clean_sql_query(sql_query)
+                print(f"sql_query_cleaned:{sql_query}")
+                sql_results = execute_sql_query(sql_query) 
+                results, table_result = generate_users_results(search_query ,sql_results)
+                if results.startswith("Sorry"):
+                    table_result = None
+                else:
+                    table_result = clean_python_table(table_result)
+                print(f"Search Results: {results}") 
+
+        return render(request, 'results.html', {
+        'results': results,
+        'table_result': table_result
+        })
     except Exception as e:
-        print(f"Error during search: {e}")
-        error_message = "Sorry"
-        return render(error_message, 'home.html')
+        print(f"Error during search: {e}")        
+        error_message = "Something went wrong, please try again."
+        return render(request, 'results.html', {'results': error_message})
 
             
         

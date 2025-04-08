@@ -27,7 +27,5 @@ urlpatterns = [
 
     path('sign-up/', sign_up, name='sign-up'),
 
-    path('terms/', terms, name='terms'),
-    
-    path('search-query/', search_view, name='search_query')
+    path('terms/', terms, name='terms')
 ]

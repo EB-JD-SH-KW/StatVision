@@ -3,7 +3,7 @@ from django.conf import settings
 from .databasecontext import db_context
 import os 
 import json
-import logging
+
 from dotenv import load_dotenv
 
 
@@ -27,7 +27,7 @@ def generate_sql_query(english_query):
         )
 
         sql_query = response['choices'][0]['message']['content'].strip()
-        print(sql_query, flush=True)
+        
         return sql_query
 
     except Exception as e:
@@ -45,7 +45,7 @@ def generate_users_results(question, results):
                 },
                 {
                     "role": "system",
-                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result. If the result is None, say 'sorry, we couldn't find what you were looking for. Please try another search'"
+                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result. If the result is None, say 'sorry we couldn't find what you were looking for. Please try another search'"
                 },
             ],
             temperature=0.2,
@@ -53,7 +53,6 @@ def generate_users_results(question, results):
         )
 
         user_results = response['choices'][0]['message']['content'].strip()        
-
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -111,7 +110,7 @@ def clean_python_table(table):
         payload = json.loads(cleaned_table)
         print("table_result_type",type(payload))
         print(payload)
-        return 400
+        return payload
     else:
         # Return the table as is if it doesn't start with '```sql' or ends with '```'
         payload = table.replace("'", '"')
@@ -119,4 +118,4 @@ def clean_python_table(table):
         payload = json.loads(table)
         print("table_result_type",type(payload))
         print(payload)
-        return 400
+        return payload

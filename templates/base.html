@@ -35,7 +35,7 @@
                 <p id="site-name"><a href="{% url 'home' %}">StatVision</a></p>
 
 
-                <form id="search" action="/search-query/" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1;">
+                <form id="search" action="{% url 'results' %}" method="POST" style="background-color: rgb(23, 23, 23); color:#4B96E1;">
                     {% csrf_token %}
                     <input type="text" name = "search_query" id="search-input" placeholder="Search" autocomplete="off" style="color: #4B96E1;" />
                     <button type="submit" id="search-icon" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
