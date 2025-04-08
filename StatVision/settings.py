@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1', 'StatVision.net']
 
 
-# Application definition
+# Application definitions
 
 INSTALLED_APPS = [
     'django.contrib.admin',
