@@ -11,6 +11,8 @@ from .forms import *
 from .models import *
 from datetime import date
 import requests
+import os
+
 
 
 class UsernameChangeForm(forms.ModelForm):
@@ -152,7 +154,7 @@ def fetch_league_events(path, date_params, league_abbr):
     """Fetch scoreboard events for a league."""
     url = f'https://sports-information.p.rapidapi.com/{path}'
     headers = {
-        'X-RapidAPI-Key': settings.RAPIDAPI_KEY,
+        'X-RapidAPI-Key': os.getenv('RAPIDAPI_KEY'),
         'X-RapidAPI-Host': 'sports-information.p.rapidapi.com'
     }
     resp = requests.get(url, headers=headers, params=date_params, timeout=5)
@@ -163,13 +165,12 @@ def fetch_league_events(path, date_params, league_abbr):
     return events
 
 def fetch_standings(path, year, group='league'):
-    """Fetch and group standings entries by conference and division."""
     params = {'year': year}
     if group:
         params['group'] = group
     url = f'https://sports-information.p.rapidapi.com/{path}'
     headers = {
-        'X-RapidAPI-Key': settings.RAPIDAPI_KEY,
+        'X-RapidAPI-Key': os.getenv('RAPIDAPI_KEY'),
         'X-RapidAPI-Host': 'sports-information.p.rapidapi.com'
     }
     resp = requests.get(url, headers=headers, params=params, timeout=5)
