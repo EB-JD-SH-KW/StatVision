@@ -14,6 +14,10 @@ import requests
 import os
 
 
+from .teams import NBA_TEAMS, MLB_TEAMS, NFL_TEAMS
+from django.http import HttpResponse
+
+
 
 class UsernameChangeForm(forms.ModelForm):
     class Meta:
@@ -151,7 +155,6 @@ def results(request):
 
 
 def fetch_league_events(path, date_params, league_abbr):
-    """Fetch scoreboard events for a league."""
     url = f'https://sports-information.p.rapidapi.com/{path}'
     headers = {
         'X-RapidAPI-Key': os.getenv('RAPIDAPI_KEY'),
@@ -163,6 +166,7 @@ def fetch_league_events(path, date_params, league_abbr):
     for e in events:
         e['league'] = league_abbr
     return events
+
 
 def fetch_standings(path, year, group='league'):
     params = {'year': year}
@@ -178,3 +182,57 @@ def fetch_standings(path, year, group='league'):
     standings = resp.json()['standings']
 
     return standings
+
+
+def team_page(request, league, team_name):
+    # Debugging: Check if the function is hit
+    print(f"Received request for league: {league}, team: {team_name}")
+
+    # Choose the correct dataset based on the league
+    if league == "nba":
+        teams_data = NBA_TEAMS
+    elif league == "mlb":
+        teams_data = MLB_TEAMS
+    elif league == "nfl":
+        teams_data = NFL_TEAMS
+    else:
+        return HttpResponse(f"Error: {league} league not found!")
+
+    # Find the team - handle case sensitivity and partial matches
+    team = None
+    team_name_lower = team_name.lower()
+    
+    # First try exact match
+    if team_name in teams_data:
+        team = teams_data[team_name]
+    else:
+        # Try case-insensitive match
+        for key in teams_data:
+            if key.lower() == team_name_lower:
+                team = teams_data[key]
+                break
+        else:
+            # Try partial match (like "reds" for "Reds")
+            for key in teams_data:
+                if team_name_lower in key.lower():
+                    team = teams_data[key]
+                    break
+
+    if not team:
+        return HttpResponse(f"Error: {team_name} not found in {league} league!")
+
+    # Rest of your view code...
+    division = team["division"]
+    teams_in_division = [t for t in teams_data.values() if t["division"] == division]
+    
+    for t in teams_in_division:
+        t["winning_pct"] = t["wins"] / (t["wins"] + t["losses"]) if (t["wins"] + t["losses"]) > 0 else 0
+
+    sorted_teams = sorted(teams_in_division, key=lambda t: t["winning_pct"], reverse=True)
+
+    context = {
+        'team': team,
+        'sorted_teams': sorted_teams
+    }
+
+    return render(request, 'team_page.html', context)

@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from . import views
 
 urlpatterns = [
 
@@ -17,6 +18,8 @@ urlpatterns = [
 
     path('nfl/', nfl, name='nfl'),
 
+    path('<str:league>/<str:team_name>/', views.team_page, name='team_page'),
+    
     path('privacy/', privacy, name='privacy'),
 
     path('results/', results, name='results'),

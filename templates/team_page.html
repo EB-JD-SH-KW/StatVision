@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="team-container">
+    <div class="team-header">
+        <img src="{% static team.logo_path %}" alt="{{ team.name }} Logo" class="team-logo">
+        <div class="team-info">
+            <h1>{{ team.name }} <span class="team-short-name">({{ team.short_name }})</span></h1>
+            <div class="team-meta">
+                <span class="division">{{ team.division }}</span>
+                {% if team.conference %}
+                <span class="conference">{{ team.conference }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="team-stats">
+        <div class="stat-card">
+            <h3>Record</h3>
+            <p class="big-stat">
+                {{ team.wins }}-{{ team.losses }}
+                {% if team.ties %}-{{ team.ties }}{% endif %}
+            </p>
+            <p>Win %: {{ team.win_pct|floatformat:3 }}</p>
+            {% if team.playoff_status %}
+                <p class="playoff-status 
+                    {% if team.playoff_status in 'xyz' %}clinched{% endif %}
+                    {% if team.playoff_status == 'e' %}eliminated{% endif %}">
+                    {% if team.playoff_status == 'y' %}Clinched Division
+                    {% elif team.playoff_status == 'x' %}Clinched Playoff
+                    {% elif team.playoff_status == 'z' %}Clinched Conference
+                    {% elif team.playoff_status == 'e' %}Eliminated
+                    {% else %}{{ team.playoff_status }}{% endif %}
+                </p>
+            {% endif %}
+            {% if league == 'mlb' and team.gb %}
+                <p>Games Back: {{ team.gb }}</p>
+            {% endif %}
+        </div>
+
+        <div class="stat-card">
+            <h3>Home/Away</h3>
+            <p>Home: {{ team.home_record }}</p>
+            <p>Away: {{ team.away_record }}</p>
+            {% if league == 'mlb' and team.last_10 %}
+            <p>Last 10: {{ team.last_10 }}</p>
+            {% endif %}
+        </div>
+
+        {% if team.div_record %}
+        <div class="stat-card">
+            <h3>Division/Conf</h3>
+            <p>Division: {{ team.div_record }}</p>
+            {% if team.conf_record %}
+            <p>Conference: {{ team.conf_record }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="stat-card">
+            {% if league == 'mlb' %}
+                <h3>Runs</h3>
+                <p>Scored: {{ team.runs_scored|default:"N/A" }}</p>
+                <p>Allowed: {{ team.runs_against|default:"N/A" }}</p>
+                <p>Run Diff: {{ team.run_diff|default:"N/A" }}</p>
+            {% elif league == 'nfl' %}
+                <h3>Points</h3>
+                <p>For: {{ team.points_for|default:"N/A" }}</p>
+                <p>Against: {{ team.points_against|default:"N/A" }}</p>
+                <p>Point Diff: {{ team.point_diff|default:"N/A" }}</p>
+            {% elif league == 'nba' %}
+                <h3>Points</h3>
+                <p>PPG: {{ team.ppg|default:"N/A" }}</p>
+                <p>Opp PPG: {{ team.opp_ppg|default:"N/A" }}</p>
+                <p>Diff: {{ team.diff|default:"N/A" }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="division-standings">
+        <h2>{{ team.division }} Standings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>W-L{% if team.ties %}-T{% endif %}</th>
+                    <th>PCT</th>
+                    {% if league == 'mlb' %}
+                        <th>GB</th>
+                    {% elif league == 'nba' %}
+                        <th>GB</th>
+                    {% endif %}
+                    <th>Streak</th>
+                    {% if league == 'mlb' %}<th>Last 10</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in sorted_teams %}
+                <tr class="{% if t.name == team.name %}current-team{% endif %}">
+                    <td class="team-name">
+                        <img src="{% static t.logo_path %}" alt="{{ t.name }} Logo" class="small-logo">
+                        {{ t.name }}
+                    </td>
+                    <td>
+                        {{ t.wins }}-{{ t.losses }}
+                        {% if t.ties %}-{{ t.ties }}{% endif %}
+                    </td>
+                    <td>{{ t.win_pct|floatformat:3 }}</td>
+                    {% if league == 'mlb' %}
+                        <td>{{ t.gb }}</td>
+                    {% elif league == 'nba' %}
+                        <td>{{ t.games_back }}</td>
+                    {% endif %}
+                    <td>{{ t.streak }}</td>
+                    {% if league == 'mlb' %}<td>{{ t.last_10 }}</td>{% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

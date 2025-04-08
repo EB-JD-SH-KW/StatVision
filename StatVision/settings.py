@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1', 'StatVision.net']
 
 
-# Application definition
+# Application definitions
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -158,3 +158,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
+=======
+
+
+RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
+RAPIDAPI_KEY = 'f67f29274dmsh8358ea60c752314p17b1e0jsn11971d87397c'
+>>>>>>> bd305533aed983f3e33a38c4e1ad593588ffc0d2
