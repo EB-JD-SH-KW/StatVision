@@ -73,7 +73,11 @@ jobs:
             # Export the commit sha as an environment variable inside the script
             export GITHUB_SHA=${{ github.sha }}
 
+            # Export the openai key as an environment variable inside the script
             export OPEN_AI_KEY=${{ vars.OPEN_AI_KEY }}
+
+            # Export the rapidapi key as an environment variable inside the script
+            export RAPIDAPI_KEY=${{ vars.RAPIDAPI_KEY }}
 
             # Build the docker image without using any cache
             docker compose build --no-cache StatVision
