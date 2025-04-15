@@ -4,7 +4,7 @@
 
 1.  [Project Description (updated to include 400-character abstract and should reflect final version of the project)](docs/FinalDesignReport/Project_Description.md)
 
-2.  [User Interface Specification (optional inclusion of UI design)](docs/FinalDesignReport/UI Specification.pdf)
+2.  [User Interface Specification (optional inclusion of UI design)](docs/FinalDesignReport/UI-Specification.pdf)
 
 3.  [Test Plan and Results (describe execution and results of all tests)](docs/FinalDesignReport/Test_Plan.md)
 
