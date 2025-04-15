@@ -1,6 +1,28 @@
 # StatVision – Sports Data Platform
 
+## Final Design Report Table Of Contents
 
+1.  [Project Description (updated to include 400-character abstract and should reflect final version of the project)](docs/FinalDesignReport/Project_Description.md)
+
+2.  [User Interface Specification (optional inclusion of UI design)](docs/FinalDesignReport/UI Specification.pdf)
+
+3.  [Test Plan and Results (describe execution and results of all tests)](docs/FinalDesignReport/Test_Plan.md)
+
+4.  [User Manual (includes links and screenshots of online user manual; include FAQ in report)](docs/FinalDesignReport/User_Guide.md)
+
+5.  [Spring Final PPT Presentation](docs/FinalDesignReport/Presentation.pdf)
+
+6.  [Final Expo Poster](docs/FinalDesignReport/Copy of Expo Poster (48 x 42 in).pdf)
+
+7.  [Assessments (JD)](docs/FinalDesignReport/JD)
+
+7a.  [Assessments (EB)](docs/FinalDesignReport/EB)
+
+7b.  [Assessments (KW)](docs/FinalDesignReport/KW)
+
+8.  [Summary of Hours and Justification (one per individual team member)(See Team Member Initials Folders)](docs/FinalDesignReport/)
+
+9.  [Summary of Expenses](docs/FinalDesignReport/ExpensesSummary.txt)
 
 ## Table of Contents
 
