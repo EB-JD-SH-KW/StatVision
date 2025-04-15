@@ -40,12 +40,10 @@
   - [Self-Assessment Essays](#self-assessment-essays)
     - [Eric Bridgens Assessment](#eric-bridgens-assessment)
     - [Joshua Dickens Assessment](#joshua-dickens-assessment)
-    - [Sunny He Assessment](#sunny-he-assessment)
     - [Kyle Willoughby Assessment](#kyle-willoughby-assessment)
   - [Professional Biographies](#professional-biographies)
     - [Eric Bridgens Assessment](#eric-bridgens-biography)
     - [Joshua Dickens Assessment](#joshua-dickens-biography)
-    - [Sunny He Assessment](#sunny-he-biography)
     - [Kyle Willoughby Assessment](#kyle-willoughby-biography)
 
 ---
@@ -58,8 +56,7 @@
 ### Team Names
 
 - **Eric Bridgens** – BridgeEC@mail.UC.edu  
-- **Joshua Dickins** – DickenJD@mail.UC.edu  
-- **Sunny He** – HeSW@mail.UC.edu  
+- **Joshua Dickins** – DickenJD@mail.UC.edu 
 - **Kyle Willoughby** – WillouKM@mail.UC.edu  
 
 - **Jillian Aurisano** (Advisor) – AurisaJM@mail.UC.edu  
@@ -224,8 +221,6 @@ StatVision is a web application designed to track, report, and analyze sports da
 
   - #### [Joshua Dickens Assessment](docs/Capstone_Assessments/Dickens_Assessment.md)
 
-  - #### [Sunny He Assessment](docs/Capstone_Assessments/He_Assessment.md)
-
   - #### [Kyle Willoughby Assessment](docs/Capstone_Assessments/Willoughby_Assessment.md)
 
 
@@ -234,7 +229,5 @@ StatVision is a web application designed to track, report, and analyze sports da
   - #### [Eric Bridgens Biography](Professional_Biographies/Bridgens_Biography.md)
 
   - #### [Joshua Dickins Biography](Professional_Biographies/Dickens_Biography.md)
-
-  - #### [Sunny He Biography](Professional_Biographies/He_Biography.md)
 
   - #### [Kyle Willoughby Biography](Professional_Biographies/Willoughby_Biography.md)

@@ -73,16 +73,33 @@ jobs:
             # Export the commit sha as an environment variable inside the script
             export GITHUB_SHA=${{ github.sha }}
 
+            # Export the openai key as an environment variable inside the script
+            # Export the openai key as an environment variable inside the script
             export OPEN_AI_KEY=${{ vars.OPEN_AI_KEY }}
 
-            # Build the docker image without using any cache
-            docker compose build --no-cache StatVision
+            # Export the rapidapi key as an environment variable inside the script
+            export RAPIDAPI_KEY=${{ vars.RAPIDAPI_KEY }}
 
-            # Prune old docker images after new one is created
-            docker image prune -f
+            # Export the rapidapi key as an environment variable inside the script
+            export RAPIDAPI_KEY=${{ vars.RAPIDAPI_KEY }}
+
+            # Stop all running containers
+            docker stop $(docker ps -q)
+
+            # Remove all containers (now stopped)
+            docker rm $(docker ps -aq)
+
+            # Remove all images
+            docker rmi -f $(docker images -aq)
+
+            # Clean all docker resources
+            docker system prune -af
 
             # Ensure the entrypoint script is executable
             chmod +x Docker/entrypoint.sh
+
+            # Build the docker image without using any cache
+            docker compose build --no-cache StatVision
 
             # Start the compose services in detached mode and remove orphaned containers
             docker compose up --remove-orphans --detach

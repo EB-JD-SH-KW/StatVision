@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['18.191.127.237', '127.0.0.1', 'StatVision.net']
 
 
-# Application definition
+# Application definitions
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -83,6 +83,34 @@ DATABASES = {
         'PASSWORD': 'StatVision05082025#!',
         'HOST': 'sportsinfo.c1si0m0ggtln.us-east-2.rds.amazonaws.com',
         'PORT': '3306'
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
+    'mlb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MLB',
+        'USER': 'sa',
+        'PASSWORD': 'StatVision05082025#!',
+        'HOST': 'sportsinfo.c1si0m0ggtln.us-east-2.rds.amazonaws.com',
+        'PORT': '3306'
+    },
+    'nba': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'NBA',
+        'USER': 'sa',
+        'PASSWORD': 'StatVision05082025#!',
+        'HOST': 'sportsinfo.c1si0m0ggtln.us-east-2.rds.amazonaws.com',
+        'PORT': '3306'
+    },
+    'nfl': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'NFL',
+        'USER': 'sa',
+        'PASSWORD': 'StatVision05082025#!',
+        'HOST': 'sportsinfo.c1si0m0ggtln.us-east-2.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 
@@ -130,3 +158,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
+RAPIDAPI_KEY = 'f67f29274dmsh8358ea60c752314p17b1e0jsn11971d87397c'

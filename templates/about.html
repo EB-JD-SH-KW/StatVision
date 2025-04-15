@@ -1,6 +1,6 @@
-<!--    Authors:            Eric Bridgens | Joshua Dickens | Sunny He | Kyle Willoughby     -->
-<!--    Creation Date:      August 15, 2024                                                 -->
-<!--    Project Name:       StatVision                                                      -->
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
 
 {% extends "base.html" %}
 
@@ -12,6 +12,8 @@ About | StatVision
 
 
 {% block main %}
+
+{% include "scoreboard.html" with events=events limit=10 %}
 
 <h1 class="main-heading">About</h1>
 

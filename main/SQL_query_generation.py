@@ -45,7 +45,7 @@ def generate_users_results(question, results):
                 },
                 {
                     "role": "system",
-                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result."
+                    "content": f"The user asked this question: '{question}'. The answer to the question is: {results}. Please respond to the user with a full sentence using the result. If the result is None, say 'sorry we couldn't find what you were looking for. Please try another search'"
                 },
             ],
             temperature=0.2,
@@ -53,7 +53,6 @@ def generate_users_results(question, results):
         )
 
         user_results = response['choices'][0]['message']['content'].strip()        
-
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[

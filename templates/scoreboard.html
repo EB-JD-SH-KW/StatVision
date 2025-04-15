@@ -1,0 +1,70 @@
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
+
+{% load static %}
+
+<div class="scoreboard">
+
+{% if events %}
+
+    {% for game in events|slice:":10" %}
+        {% for competition in game.competitions %}
+
+            <div id="scorecard">
+
+                {% for competitor in competition.competitors %}
+                    {% if competitor.homeAway == 'home' %}
+
+                        <div id="home-team">
+
+                            <img src="{{ competitor.team.logo }}" alt="{{ competitor.team.abbreviation }}">
+
+                            <span>{{ competitor.team.abbreviation }}</span>
+
+                            {% if competition.status.type.state != 'pre' %}
+                                <time>{{ competitor.score }}</time>
+                            {% else %}
+                                <time datetime="{{ competition.date }}">{{ competition.status.type.shortDetail }}</time>
+                            {% endif %}
+
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+                
+                {% for competitor in competition.competitors %}
+                    {% if competitor.homeAway == 'away' %}
+
+                        <div id="away-team">
+
+                            <img src="{{ competitor.team.logo }}" alt="{{ competitor.team.abbreviation }}">
+
+                            <span>{{ competitor.team.abbreviation }}</span>
+
+                            {% if competition.status.type.state != 'pre' %}
+                                <!-- If the game has started, show the away team’s score -->
+                                <p>{{ competitor.score }}</p>
+                            {% else %}
+                                <!-- If the game hasn't started, show the odds spread -->
+                                <p>{{ competition.odds.0.spread }}</p>
+                            {% endif %}
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+    {% endfor %}
+
+{% else %}
+    <div id="scorecard">
+        <p>No games scheduled for today.</p>
+    </div>
+{% endif %}
+
+</div>
+
+<script src="{% static 'js/scoreboard.js' %}" type="text/javascript" defer></script>

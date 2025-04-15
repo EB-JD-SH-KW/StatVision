@@ -1,0 +1,126 @@
+<!--    Authors:            Eric Bridgens | Joshua Dickens | Kyle Willoughby    -->
+<!--    Creation Date:      August 15, 2024                                     -->
+<!--    Project Name:       StatVision                                          -->
+
+{% load static %}
+
+<div class="standings">
+
+    <ul>
+        <li class="team header">
+            <span class="col-logo">Logo</span>
+            <span class="col-name">Team</span>
+            <span class="col-wins">W</span>
+            <span class="col-losses">L</span>
+            <span class="col-pct">PCT</span>
+            <span class="col-gb">GB</span>
+        </li>
+
+        {% for entry in standings.entries %}
+            <li class="team">
+
+                {% for logo in entry.team.logos %}
+                    {% for rel in logo.rel %}
+                        {% if rel == 'default' %}
+
+                            <img id=logo src="{{ logo.href }}" alt="{{ entry.team.displayName }}">
+
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+                <span id="team-name">{{ entry.team.displayName }}</span>
+                
+                {% for stat in entry.stats %}
+                    {% if stat.name == 'wins' %}
+
+                        <span id="team-wins">{{ stat.displayValue }}</span>
+
+                    {% endif %}
+                {% endfor %}
+
+                
+                {% for stat in entry.stats %}
+                    {% if stat.name == 'losses' %}
+
+                        <span id="team-losses">{{ stat.displayValue }}</span>
+
+                    {% endif %}
+                {% endfor %}
+                
+                
+                {% for stat in entry.stats %}
+                    {% if stat.name == 'winPercent' %}
+
+                        <span id="team-win-percentage">{{ stat.displayValue }}</span>
+
+                    {% endif %}
+                {% endfor %}
+
+                
+                {% for stat in entry.stats %}
+                    {% if stat.name == 'gamesBehind' %}
+
+                        <span id="team-games-behind">{{ stat.displayValue }}</span>
+
+                    {% endif %}
+                {% endfor %}
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+    
+</div>
+
+<!-- <script src="{% static 'js/scoreboard.js' %}" type="text/javascript" defer></script>
+
+<style>
+    /* Scoreboard strip */
+    .game-strip {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    }
+    .game-card {
+    flex: 0 0 auto;
+    width: 140px; height: 90px;
+    border: 1px solid #ccc; border-radius: 6px;
+    background: #fff; display: flex; flex-direction: column;
+    justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .card-top, .card-bottom {
+    display: flex; align-items: center; padding: 4px; height: 45%;
+    }
+    .card-top { justify-content: space-between; border-bottom: 1px solid #eee; }
+    .team-info { display: flex; align-items: center; }
+    .team-logo { width: 20px; height: 20px; margin-right: 4px; }
+    .team-abbr { font-size: 0.85rem; font-weight: bold; }
+    .game-time { font-size: 0.75rem; color: #555; text-align: right; }
+    
+    /* Conferences layout */
+    .conferences {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    }
+    .conference {
+    background: #f9f9f9; padding: 1rem; border-radius: 8px;
+    }
+    .division + .division { margin-top: 1rem; }
+    .division h3 { margin-bottom: 0.5rem; }
+    
+    /* Team list */
+    .team {
+    display: flex; align-items: center;
+    padding: 0.25rem 0;
+    }
+    .logo { width: 24px; height: 24px; margin-right: 0.5rem; }
+    .abbr { font-weight: bold; margin-right: auto; }
+    .record, .pct, .gb {
+    margin-left: 0.75rem; font-size: 0.9rem;
+    }
+    </style> -->
