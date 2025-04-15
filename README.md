@@ -12,7 +12,7 @@
 
 5.  [Spring Final PPT Presentation](docs/FinalDesignReport/Presentation.pdf)
 
-6.  [Final Expo Poster](docs/FinalDesignReport/Copy of Expo Poster (48 x 42 in).pdf)
+6.  [Final Expo Poster](docs/FinalDesignReport/Expo-Poster.pdf)
 
 7.  [Assessments (JD)](docs/FinalDesignReport/JD)
 
