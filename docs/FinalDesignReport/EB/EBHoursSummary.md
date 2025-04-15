@@ -9,8 +9,10 @@
 | Setting up EC2 instance and deploying Flask/Django app to AWS                        | 4 hours         |
 | Configuring and connecting database on AWS RDS (loading NBA/MLB stats)               | 5 hours         |
 | Implementing data visualization with chart libraries                                 | 4 hours         |
-| Testing and debugging the search feature, including exception and edge-case handling | 3 hours         |
+| Testing and debugging the search feature, including exception and edge-case handling | 4 hours         |
 | Designing and applying error handling and user feedback messages                     | 2 hours         |
 | Team collaboration and code review sessions                                          | 2 hours         |
 | Writing project documentation and contributing to final report                       | 2 hours         |
-| Setting up and managing project structure
+
+
+**Total Estimated Hours:** **45 hours**
