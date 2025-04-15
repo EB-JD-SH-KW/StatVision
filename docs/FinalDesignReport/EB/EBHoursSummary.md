@@ -1,4 +1,4 @@
-## Summary of Hours and Justification – [Your Name]
+## Summary of Hours and Justification
 
 | Task                                                                                  | Estimated Hours |
 |---------------------------------------------------------------------------------------|-----------------|
